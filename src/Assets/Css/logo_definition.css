@@ -1,0 +1,33 @@
+.section-logo{
+  padding:"30px";
+  padding-bottom:"30px";
+}
+.img-logo {
+  width: 100px;
+  height: auto;
+}
+
+.logo_nav {
+  margin-top: 3rem;
+}
+
+a:link{
+  text-decoration: none;
+  color: #4c4c4c;
+}
+
+a:visited {
+  color: #4c4c4c;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FE9E0D !important;
+  background-color: transparent;
+}
+
+a:active {
+  color: #FE9E0D !important;
+  background-color: transparent;
+}

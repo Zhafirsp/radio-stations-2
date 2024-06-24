@@ -1,0 +1,924 @@
+@font-face {
+  font-family: CooperHewittBold;
+  src: url(CooperHewitt-Bold.otf);
+}
+label{
+  font-family: CooperHewittBold;
+}
+.station-streaming-comingsoon{
+color: #f4b233 !important;
+}
+/* hp */
+@media (min-width: 357px) and (max-width: 500px) { 
+  .border-kotak {
+    position: relative;
+  }
+  body {
+    margin-top: 0px !important;
+  }
+  .border-kotak video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+  }
+  
+  .border-kotak .caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    text-align: center;
+    height: 100vh;
+  }
+  .row {
+    --bs-gutter-x: 0px !important;
+  } 
+  .App {
+    margin-top: 0px !important;
+    margin-left: 0px !important;
+  }
+  .kotak-awal {
+    width: 100vw;
+    height: 100vh;
+  }
+  .img-comingsoon {
+    position: absolute;
+    color: #ffffff;
+    font-weight: bold;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+    width: 290px;
+  }
+  .capt-comingsoon {
+    position: absolute;
+    font-size: 32px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .img-cover-comingsoon {
+    width: 20%;
+  }
+  .streaming-radio-comingsoon {
+    font-size: 9px;
+    position: absolute;
+    bottom: 2%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: #ffffff;
+    width: 45vh;
+    padding-top: 15px;
+    height: 15vh;
+  }
+  .song-text-comingsoon {
+    margin-top: 15px;
+  }
+  .song-player-comingsoon {
+    margin-left: 0px !important;
+  }
+  .Player_player__jtrzv {
+    margin-left: 18px !important;
+  }
+  .song-player-comingsoon {
+    margin-bottom: -60px;
+  }
+  #RadioPlayer {
+    margin-left: 50px !important;
+  }
+  .station-streaming-comingsoon {
+    margin-right: 5px;
+  }
+  .station-selector-comingsoon {
+    display: inline-flex;
+    margin-left: 10px !important;
+    font-family: CooperHewittBold;
+  }
+  .station-selector-comingsoon p{
+    font-family: CooperHewittBold !important;
+  }
+  .station-selector-comingsoon div{
+    font-family: CooperHewittBold !important;
+  }
+}
+/* tab */
+@media only screen and (min-width: 501px) and (max-width: 768px) {
+  body {
+    margin-top: 0px !important;
+  }
+  .App {
+    margin-top: 0px !important;
+    margin-left: 0px !important;
+  }
+  .kotak-awal {
+    width: 100vw;
+    height: 100vh;
+  }
+  .img-comingsoon {
+    position: absolute;
+    color: #ffffff;
+    font-weight: bold;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+    width: 450px;
+  }
+  .capt-comingsoon {
+    position: absolute;
+    font-size: 50px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .img-cover-comingsoon {
+    width: 10%;
+  }
+  .streaming-radio-comingsoon {
+    font-size: 9px;
+    position: absolute;
+    bottom: 2%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: #ffffff;
+    width: 45vh;
+    padding-top: 15px;
+    height: 15vh;
+  }
+  .song-text-comingsoon {
+    margin-top: 15px;
+  }
+  .song-player-comingsoon {
+    margin-left: 0px !important;
+  }
+  .Player_player__jtrzv {
+    margin-left: 18px !important;
+  }
+  .song-player-comingsoon {
+    margin-bottom: -25px;
+  }
+  #RadioPlayer {
+    margin-left: 50px !important;
+  }
+  .station-streaming-comingsoon {
+    margin-right: 5px;
+  }
+  .station-selector-comingsoon {
+    display: inline-flex;
+    margin-left: 15px !important;
+    font-family: CooperHewittBold;
+  }
+  .station-selector-comingsoon p{
+    font-family: CooperHewittBold !important;
+  }
+  .station-selector-comingsoon div{
+    font-family: CooperHewittBold !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .border-kotak {
+    position: relative;
+  }
+  body {
+    margin-top: 0px !important;
+  }
+  .border-kotak video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+  }
+  
+  .border-kotak .caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    text-align: center;
+    height: 100vh;
+  }
+  .row {
+    --bs-gutter-x: 0px !important;
+  } 
+  .App {
+    min-height: 100vh;
+  }
+  .kotak-awal {
+    width: 100vw;
+    height: 100vh;
+  }
+  .img-comingsoon {
+    position: absolute;
+    font-size: 60px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 720px;
+  }
+  .capt-comingsoon {
+    position: absolute;
+    font-size: 71px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .img-cover-comingsoon {
+    width: 10%;
+  }
+  .streaming-radio-comingsoon {
+    font-size: 12px;
+    position: absolute;
+    bottom: 2%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: #ffffff;
+    width: 40vh;
+    padding-top: 35px;
+    height: 13vh;
+  }
+  .song-text-comingsoon {
+    margin-top: 15px;
+  }
+  .song-player-comingsoon {
+    margin-left: 0px !important;
+  }
+  .Player_player__jtrzv {
+    margin-left: 18px !important;
+  }
+  .song-player-comingsoon {
+    margin-bottom: -45px;
+  }
+  #RadioPlayer {
+    margin-left: 50px !important;
+  }
+  .station-streaming-comingsoon {
+    margin-right: 5px;
+  }
+  .station-selector-comingsoon {
+    display: inline-flex;
+    margin-left: 25px !important;
+    font-family: CooperHewittBold;
+  }
+  .station-selector-comingsoon p{
+    font-family: CooperHewittBold !important;
+  }
+  .station-selector-comingsoon div{
+    font-family: CooperHewittBold !important;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1280px) {
+  body {
+    margin-top: 0px !important;
+  }
+  .border-kotak video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .kotak-awal {
+    width: 100vw;
+    height: 100vh;
+  }
+  .border-kotak .caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    text-align: center;
+    height: 100vh;
+  }
+  .row {
+    --bs-gutter-x: 0px !important;
+  }
+  .img-comingsoon {
+    position: absolute;
+    font-size: 60px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+  }
+  .capt-comingsoon {
+    position: absolute;
+    font-size: 65px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .img-cover-comingsoon {
+    width: 15%;
+  }
+  .streaming-radio-comingsoon {
+    font-size: 10px;
+    position: absolute;
+    bottom: 2%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: #ffffff;
+    width: 55vh;
+    padding-top: 15px;
+    height: 15vh;
+  }
+  .song-text-comingsoon {
+    margin-top: 12px;
+  }
+  .song-player-comingsoon {
+    margin-left: 0px !important;
+  }
+  .Player_player__jtrzv {
+    margin-left: 18px !important;
+  }
+  .song-player-comingsoon {
+    margin-bottom: -59px;
+  }
+  #RadioPlayer {
+    margin-left: 0px !important;
+  }
+  .station-streaming-comingsoon {
+    margin-right: 5px;
+  }
+  .station-selector-comingsoon {
+    display: inline-flex;
+    margin-left: 20px !important;
+    font-size: 15px !important;
+  }
+}
+ @media (min-width: 992px) and (max-width: 1200px) {
+  body {
+    margin-top: 0px !important;
+  }
+  .border-kotak video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .kotak-awal {
+    width: 100vw;
+    height: 100vh;
+  }
+  .border-kotak .caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    text-align: center;
+    height: 100vh;
+  }
+  .row {
+    --bs-gutter-x: 0px !important;
+  }
+  .img-comingsoon {
+    position: absolute;
+    font-size: 60px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+  }
+  
+  .img-cover-comingsoon {
+    width: 10%;
+  }
+  .capt-comingsoon {
+    position: absolute;
+    font-size: 65px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .streaming-radio-comingsoon {
+    font-size: 10px;
+    position: absolute;
+    bottom: 2%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: #ffffff;
+    width: 50vh;
+    padding-top: 15px;
+    height: 15vh;
+  }
+  .song-text-comingsoon {
+    margin-top: 15px;
+  }
+  .song-player-comingsoon {
+    margin-left: 0px !important;
+  }
+  .Player_player__jtrzv {
+    margin-left: 18px !important;
+  }
+  .song-player-comingsoon {
+    margin-bottom: -45px;
+  }
+  #RadioPlayer {
+    margin-left: 50px !important;
+  }
+  .station-streaming-comingsoon {
+    margin-right: 5px;
+  }
+  .station-selector-comingsoon {
+    display: inline-flex;
+    margin-left: 20px !important;
+    font-family: CooperHewittBold;
+  }
+  .station-selector-comingsoon p{
+    font-family: CooperHewittBold !important;
+  }
+  .station-selector-comingsoon div{
+    font-family: CooperHewittBold !important;
+  }
+} 
+
+@media (min-width: 1200px) and (max-width: 1366px) {
+  body {
+    margin-top: 0px !important;
+  }
+  .border-kotak video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .kotak-awal {
+    width: 100vw;
+    height: 100vh;
+  }
+  .border-kotak .caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    text-align: center;
+    height: 100vh;
+  }
+  .row {
+    --bs-gutter-x: 0px !important;
+  }
+  .img-comingsoon {
+    position: absolute;
+    font-size: 60px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+  }
+  .capt-comingsoon {
+    position: absolute;
+    font-size: 65px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .img-cover-comingsoon {
+    width: 10%;
+  }
+  .streaming-radio-comingsoon {
+    font-size: 9px;
+    position: absolute;
+    bottom: 2%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: #ffffff;
+    width: 45vh;
+    padding-top: 15px;
+    height: 15vh;
+  }
+  .song-text-comingsoon {
+    margin-top: 12px;
+  }
+  .song-player-comingsoon {
+    margin-left: 0px !important;
+  }
+  .Player_player__jtrzv {
+    margin-left: 18px !important;
+  }
+  .song-player-comingsoon {
+    margin-bottom: -45px;
+  }
+  #RadioPlayer {
+    margin-left: 50px !important;
+  }
+  .station-streaming-comingsoon {
+    margin-right: 5px;
+  }
+  .station-selector-comingsoon {
+    display: inline-flex;
+    margin-left: 7px !important;
+    font-size: 15px !important;
+    font-family: CooperHewittBold;
+  }
+  .station-selector-comingsoon p{
+    font-family: CooperHewittBold !important;
+  }
+  .station-selector-comingsoon div{
+    font-family: CooperHewittBold !important;
+  }
+}
+@media (min-width: 1360px) and (max-width: 1360px) {
+  body {
+    margin-top: 0px !important;
+  }
+  .border-kotak video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .kotak-awal {
+    width: 100vw;
+    height: 100vh;
+  }
+  .border-kotak .caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    text-align: center;
+    height: 100vh;
+  }
+  .row {
+    --bs-gutter-x: 0px !important;
+  }
+  .img-comingsoon {
+    position: absolute;
+    font-size: 60px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+  }
+  .capt-comingsoon {
+    position: absolute;
+    font-size: 65px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .img-cover-comingsoon {
+    width: 15%;
+  }
+  .streaming-radio-comingsoon {
+    font-size: 10px;
+    position: absolute;
+    bottom: 2%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: #ffffff;
+    width: 55vh;
+    padding-top: 15px;
+    height: 20vh;
+  }
+  .song-text-comingsoon {
+    margin-top: 12px;
+  }
+  .song-player-comingsoon {
+    margin-left: 0px !important;
+  }
+  .Player_player__jtrzv {
+    margin-left: 18px !important;
+  }
+  .song-player-comingsoon {
+    margin-bottom: -59px;
+  }
+  #RadioPlayer {
+    margin-left: 50px !important;
+  }
+  .station-streaming-comingsoon {
+    margin-right: 5px;
+  }
+  .station-selector-comingsoon {
+    display: inline-flex;
+    margin-left: 20px !important;
+    font-size: 15px !important;
+    font-family: CooperHewittBold;
+  }
+  .station-selector-comingsoon p{
+    font-family: CooperHewittBold !important;
+  }
+  .station-selector-comingsoon div{
+    font-family: CooperHewittBold !important;
+  }
+}
+@media (min-width: 1366px) and (max-width: 1366px) {
+  body {
+    margin-top: 0px !important;
+  }
+  .border-kotak video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .kotak-awal {
+    width: 100vw;
+    height: 100vh;
+  }
+  .border-kotak .caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    text-align: center;
+    height: 100vh;
+  }
+  .row {
+    --bs-gutter-x: 0px !important;
+  }
+  .img-comingsoon {
+    position: absolute;
+    font-size: 60px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+  }
+  .capt-comingsoon {
+    position: absolute;
+    font-size: 65px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .img-cover-comingsoon {
+    width: 15%;
+  }
+  .streaming-radio-comingsoon {
+    font-size: 10px;
+    position: absolute;
+    bottom: 2%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: #ffffff;
+    width: 55vh;
+    padding-top: 15px;
+    height: 15vh;
+  }
+  .song-text-comingsoon {
+    margin-top: 12px;
+  }
+  .song-player-comingsoon {
+    margin-left: 0px !important;
+  }
+  .Player_player__jtrzv {
+    margin-left: 18px !important;
+  }
+  .song-player-comingsoon {
+    margin-bottom: -59px;
+  }
+  #RadioPlayer {
+    margin-left: 50px !important;
+  }
+  .station-streaming-comingsoon {
+    margin-right: 5px;
+  }
+  .station-selector-comingsoon {
+    display: inline-flex;
+    margin-left: 20px !important;
+    font-size: 15px !important;
+    font-family: CooperHewittBold;
+  }
+  .station-selector-comingsoon p{
+    font-family: CooperHewittBold !important;
+  }
+  .station-selector-comingsoon div{
+    font-family: CooperHewittBold !important;
+  }
+}
+
+
+ @media (min-width: 1367px) {
+  .kotak-awal {
+    width: 101vw;
+    height: 100vh;
+  }
+  .img-comingsoon {
+    position: absolute;
+    font-size: 60px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+  }
+  .capt-comingsoon {
+    position: absolute;
+    font-size: 65px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+
+  .img-cover-comingsoon {
+    width: 10%;
+  }
+  .streaming-radio-comingsoon {
+    font-size: 10px;
+    position: absolute;
+    bottom: 2%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: #ffffff;
+    width: 50vh;
+    padding-top: 27px;
+    height: 15vh;
+  }
+  .song-text-comingsoon {
+    margin-top: 12px;
+  }
+  .song-player-comingsoon {
+    margin-left: 0px !important;
+  }
+  .Player_player__jtrzv {
+    margin-left: 18px !important;
+  }
+  .song-player-comingsoon {
+    margin-bottom: -35px;
+  }
+  #RadioPlayer {
+    margin-left: 50px !important;
+  }
+  .station-streaming-comingsoon {
+    margin-right: 5px;
+  }
+  .station-selector-comingsoon {
+    display: inline-flex;
+    margin-left: 25px !important;
+    font-size: 15px !important;
+  }
+  .station-selector-comingsoon p{
+    font-family: CooperHewittBold !important;
+  }
+  .station-selector-comingsoon div{
+    font-family: CooperHewittBold !important;
+  }
+} 
+
+@media (min-width: 1400px) {
+  body {
+    margin-top: 0px !important;
+  }
+  .border-kotak video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .kotak-awal {
+    width: 100vw;
+    height: 100vh;
+  }
+  .border-kotak .caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    text-align: center;
+    height: 100vh;
+  }
+  .row {
+    --bs-gutter-x: 0px !important;
+  }
+  .capt-comingsoon {
+    position: absolute;
+    font-size: 90px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 39%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .img-comingsoon {
+    position: absolute;
+    font-size: 60px;
+    color: #ffffff;
+    font-weight: bold;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+  }
+  .streaming-radio-comingsoon {
+    font-size: 12px;
+    position: absolute;
+    bottom: 2%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: #ffffff;
+    width: 55vh;
+    padding-left: 15px;
+    padding-top: 15px;
+    height: 15vh;
+  }
+  .song-text-comingsoon {
+    margin-top: 15px;
+  }
+  .song-player-comingsoon {
+    margin-bottom: -55px;
+  }
+  #RadioPlayer {
+    margin-left: 50px !important;
+  }
+  .station-streaming-comingsoon {
+    margin-right: 10px;
+  }
+  .station-selector-comingsoon {
+    display: inline-flex;
+    margin-top: 10px;
+  }
+  .station-selector-comingsoon p{
+    font-family: CooperHewittBold !important;
+  }
+  .station-selector-comingsoon div{
+    font-family: CooperHewittBold !important;
+  }
+  .img-cover-comingsoon {
+    width: 15%;
+  }
+} 

@@ -1,0 +1,365 @@
+.navbar-bottom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 130px;
+  padding: 10px 20px;
+  /* z-index: 10; */
+  transition: all 0.3s ease;
+  background-size: cover;
+  background-position: center 37.3%;
+  border-top: 1px solid #fcba33;
+}
+
+.search__icon2, .logo_bottom {
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Animasi transisi */
+}
+
+.showlogo {
+  opacity: 1;
+  transition: opacity 0.3s ease; /* Animasi transisi */
+  margin-right: 80px;
+  margin-left: 17px;
+}
+
+.showsearch {
+  opacity: 1;
+  transition: opacity 0.3s ease; /* Animasi transisi */
+  cursor: pointer;
+}
+
+.search__icon2 {
+  margin-left: -15px;
+  font-size: 40px;
+}
+
+
+.station-streaming{
+ /* margin-left: -10px; */
+}
+
+.border-streaming{
+  opacity: 0;
+}
+
+.devider-offcanvas{
+  color: #fcba33;
+}
+
+.offcanvas-title{
+  color: #fcba33;
+  font-family: "Cooper Hewitt";
+  font-weight: 700;
+}
+
+.offcanvas-bg{
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.9);
+  font-family: "Cooper Hewitt";
+  font-weight: 700;
+}
+
+  .offcanvas-menu{
+  margin-left: -60px;
+  font-family: "Cooper Hewitt";
+  font-weight: 700;
+  width: 170px;
+  }
+
+/* .navbar-bottom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../Img/concert4.jpg);
+  background-size: cover;
+  background-position: center 38.5%;
+  filter: blur(5px);
+  z-index: -1;
+} */
+
+/* .navbar-item {
+  margin-right: auto;
+  margin-bottom: 20px;
+} */
+
+@media (max-width: 1800px) {
+  .search__icon2 {
+    /* margin-left: -100px; */
+  }
+} 
+
+@media (max-width: 1700px) {
+  .search__icon2 {
+    /* margin-left: -70px; */
+  }
+} 
+/* 
+@media (max-width: 1600px) {
+  .search__icon2 {
+    margin-left: -490px;
+  }
+}  */
+
+@media (max-width: 1500px) {
+  .search__icon2 {
+    /* margin-left: -50px; */
+  }
+} 
+
+@media (max-width: 1400px) {
+  .navbar-bottom {
+    /* background-position: center 39%; */
+  }
+
+  .search__icon2 {
+    /* margin-left: -30px; */
+  }
+}
+
+/* @media (max-width: 1300px) {
+  .search__icon2 {
+    margin-left: -370px;
+  }
+} */
+
+@media (max-width: 1200px) {
+  .search__icon2 {
+    /* margin-left: -10px; */
+  }
+}
+
+@media (max-width: 1100px) {
+  .search__icon2 {
+    /* margin-left: 10px; */
+  }
+
+  .station-streaming {
+    margin-left: 35px;
+  }
+}
+
+@media (max-width: 1000px) {
+    
+  .navbar-bottom {
+    /* background-position: center 42.5%; */
+  }
+
+  .search__icon2{
+    /* margin-left: -210px; */
+  }
+}
+
+@media (max-width: 991px) {
+  .offcanvas-menu{
+    margin-top: -50px;
+    margin-left: 50px;
+    opacity: 1;
+    width: 110px;
+  }
+
+  .search__icon2 {
+    margin-left: -680px;
+    margin-top: 15px;
+    opacity: 1;
+  }
+
+  .logo_bottom{
+    opacity: 1;
+    margin-top: 15px;
+  }
+
+  .station-selector {
+    margin-left: -20px !important;
+    margin-top: -35px !important;
+  }
+
+  .station-streaming{
+   margin-left: auto;
+  }
+
+  .showlogo {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+}
+
+@media (max-width: 890px) {
+  .search__icon2 {
+    margin-left: -550px;
+  }
+}
+
+@media (max-width: 767px) {
+    
+  .navbar-bottom {
+    background-position: center 50.5%;
+  }
+  .station-streaming{
+    font-size: 18px;
+  }
+  
+  .search__icon2 {
+    margin-left: -80px;
+    margin-top: 20px;
+    opacity: 1;
+  }
+
+  .offcanvas-menu{
+    margin-top: -50px;
+    margin-left: 50px;
+  }
+
+  .search-button-offcanvas {
+    display: block; /* Sesuaikan dengan tata letak Anda */
+  }
+
+  .station-selector {
+    /* margin-left: -50px !important; */
+    margin-top: 40px !important;
+  }
+  .logo_bottom {
+    opacity: 1;
+  }
+
+  /* .navbar-bottom {
+    margin-top: 120px;
+    padding-top: 20px;
+  } */
+}
+
+@media (max-width: 700px) {
+  .search__icon2 {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 645px) {
+  .offcanvas-menu{
+    margin-left: 370px;
+  }
+
+  .logo_bottom {
+    margin-bottom: 5px;
+  }
+
+  .station-streaming {
+    margin-left: 90px;
+  }
+}
+
+@media (max-width: 595px) {
+  .offcanvas-menu{
+    margin-left: 320px;
+  }
+}
+
+@media (max-width: 545px) {
+  .offcanvas-menu{
+    margin-left: 270px;
+  }
+}
+
+@media (max-width: 500px) {
+  .offcanvas-menu{
+    margin-left: 160px;
+  }
+
+  .station-streaming {
+    margin-left: 30px;
+  }
+
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For medium devices */
+@media (max-width: 425px) {
+    
+  .navbar-bottom {
+    background-position: center 67.6%;
+  }
+  
+  .station-streaming{
+    margin-left: 50px;
+  }
+
+  .offcanvas-menu{
+    font-size: 16px;
+    margin-left: 200px;
+  }
+
+  .station-streaming{
+    margin-left: 10px;
+    font-size: 16px;
+  }
+
+  .station-selector {
+    margin-top: 0px;
+    /* margin-left: 50px */
+  }
+
+  .search__button2{
+    margin-left: -300px;
+  }
+
+  /* .logo_bottom{
+    margin-left: 150px;
+  } */
+
+  .navbar-bottom {
+    padding-top: 30px;
+  }
+
+  .search__icon2{
+    margin-left: 300px;
+    margin-top: -70px;
+  }
+  
+}
+
+@media (max-width: 375px) {
+    
+  .navbar-bottom {
+    background-position: center 74.5%;
+  }
+  .offcanvas-menu{
+    margin-left: 150px;
+    margin-top: -50px;
+  }
+
+  .search__icon2{
+    margin-left: 260px;
+    margin-top: -70px;
+  }
+}
+
+@media (max-width: 320px) {
+    
+  .navbar-bottom {
+    background-position: center 85.4%;
+  }
+
+  .station-streaming{
+    margin-left: -5px;
+    margin-top: -30px;
+  }
+
+  .offcanvas-menu{
+    margin-left: 140px;
+  }
+
+  .logo_bottom{
+    margin-left: -15px;
+  }
+  
+  .search__icon2{
+    margin-left: 235px;
+    margin-top: -70px;
+  }
+
+}
