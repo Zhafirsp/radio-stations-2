@@ -45,10 +45,10 @@ const Videos = () => {
     <Container fluid>
       <section className='videos mt-4'>
         <p className="text-videos fs-1 fw-bold ms-4">Find out more from Videos</p>
-        <Container fluid className="container-oztv">
+        <Container fluid className="">
           <Row>
             {videos.map((video) => (
-              <Col key={video.id} className="mb-4">
+              <Col lg={4} md={12} key={video.id} className="mb-4">
                 <Card 
                   videoTitle={video.title} 
                   videoBody={video.body} 
