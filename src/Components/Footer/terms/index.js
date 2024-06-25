@@ -11,7 +11,7 @@ const Terms = () => {
 
   return (
     <>
-      <Link className="terms" onClick={handleShow} > Terms & Conditions </Link> 
+      <Link className="terms text-white" onClick={handleShow} > Terms & Conditions </Link> 
             <Modal 
             size="lg" 
             aria-labelledby="contained-modal-title-vcenter" 

@@ -36,7 +36,7 @@ const Hero = () => {
         {/* Konten utama */}
           <div className="container col-xxl-8 px-4 py-5" style={{ height: 757 }}>
             <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div className="col-lg-6">
+            <div className="col-lg-6 px-4">
               <span className="span-hero fs-2">February 25, 2024</span>
                 <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3 mt-3">Special Music Event on <span className="span-hero">OZ Jakarta </span></h1>
                 <h3 className="fw-bolder text-body-emphasis lh-1 mb-5">(OPEN FOR PUBLIC)</h3>
@@ -52,7 +52,7 @@ const Hero = () => {
         {/* Konten utama */}
           <div className="container col-xxl-8 px-4 py-5" style={{ height: 757 }}>
             <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div className="col-lg-6">
+            <div className="col-lg-6 px-4">
               <span className="span-hero fs-2">February 27, 2024</span>
                 <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3 mt-3">Special Music Event on <span className="span-hero">OZ Bali </span></h1>
                 <h3 className="fw-bolder text-body-emphasis lh-1 mb-5">(OPEN FOR PUBLIC)</h3>
@@ -68,7 +68,7 @@ const Hero = () => {
         {/* Konten utama */}
           <div className="container col-xxl-8 px-4 py-5" style={{ height: 757 }}>
             <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div className="col-lg-6">
+            <div className="col-lg-6 px-4">
               <span className="span-hero fs-2">February 28, 2024</span>
                 <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3 mt-3">Special Music Event on <span className="span-hero">OZ Bandung </span></h1>
                 <h3 className="fw-bolder text-body-emphasis lh-1 mb-5">(OPEN FOR PUBLIC)</h3>
@@ -84,7 +84,7 @@ const Hero = () => {
         {/* Konten utama */}
           <div className="container col-xxl-8 px-4 py-5" style={{ height: 757 }}>
             <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div className="col-lg-6">
+            <div className="col-lg-6 px-4">
               <span className="span-hero fs-2">March 5, 2024</span>
                 <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3 mt-3">Special Music Event on <span className="span-hero">OZ Bali </span></h1>
                 <h3 className="fw-bolder text-body-emphasis lh-1 mb-5">(OPEN FOR PUBLIC)</h3>

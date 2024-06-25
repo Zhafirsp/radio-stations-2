@@ -122,7 +122,7 @@ const Interview = () => {
             </h1>
           </Col>
           <Col sm={1} lg={2} className="mt-3 button-interview">
-            <Link to="/interview"><Button variant="outline-dark ms-5">Load More</Button></Link>
+            <Link to="/interview"><Button variant="outline-dark">Load More</Button></Link>
           </Col>
         </Row>
         <Row lg={12} className="g-2 slider-row ">

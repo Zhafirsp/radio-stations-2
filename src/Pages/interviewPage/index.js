@@ -8,6 +8,7 @@ import Slider from "react-slick";
 import { BsCollectionPlay } from "react-icons/bs";
 import { Parallax, Background } from "react-parallax";
 import podcast_2 from '../../Assets/Img/podcast_2.jpg'
+import "./interviewPage.css"
 
 const InterviewPage = () => {
  
@@ -32,11 +33,11 @@ const InterviewPage = () => {
         </Parallax>
       </div>
     <Container>
-      <div className="about-section-text-container" data-aos="fade-up">
+      <div className="interview-page-container" data-aos="fade-up">
           <Row>
             <Col>
               <iframe 
-                style={{ borderRadius:"12px", marginTop:"-175px"}} 
+                style={{ borderRadius:"12px"}} 
                 src="https://open.spotify.com/embed/show/2os8ztmszBkBYNaLUGuxJ4?utm_source=generator&theme=0" 
                 width="100%" 
                 height="152" 
@@ -50,7 +51,7 @@ const InterviewPage = () => {
             </Col>
             <Col>
               <iframe 
-                style={{ borderRadius:"12px", marginTop:"-175px"}} 
+                style={{ borderRadius:"12px"}} 
                 src="https://open.spotify.com/embed/show/24P703f8q8xHnqOn6MCrPO?utm_source=generator&theme=0" 
                 width="100%" 
                 height="152" 

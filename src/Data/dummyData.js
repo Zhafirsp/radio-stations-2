@@ -2,7 +2,7 @@ export const hero = [
   {
     id: 1,
     cover: "../images/hero/hero1.jpg",
-    catgeory: "featured",
+    category: "featured",
     title: "Google To Boost Android Security In Few Days",
     authorName: "Salman",
     authorImg: "../images/author.jpg",
@@ -37,7 +37,7 @@ export const hero = [
   {
     id: 2,
     cover: "../images/hero/hero2.jpg",
-    catgeory: "sport",
+    category: "sport",
     title: "More than billion football fans attend Brazil world cup",
     authorName: "alex",
     authorImg: "../images/author.jpg",
@@ -72,7 +72,7 @@ export const hero = [
   {
     id: 3,
     cover: "../images/hero/hero3.jpg",
-    catgeory: "fashion",
+    category: "fashion",
     title: "No escaping new high tech speed cameras",
     authorName: "rina",
     authorImg: "../images/author.jpg",
@@ -107,7 +107,7 @@ export const hero = [
   {
     id: 4,
     cover: "../images/hero/hero4.jpg",
-    catgeory: "technology",
+    category: "technology",
     title: "Emma Watson stands up for Turkish women",
     authorName: "sunil",
     authorImg: "../images/author.jpg",
@@ -144,7 +144,7 @@ export const world = [
   {
     id: 1,
     cover: "../images/world/world1.jpg",
-    catgeory: "",
+    category: "",
     title: "Stepping back does make Sussex safer and at peace ",
     authorName: "Salman",
     time: "5 Jun - 2022",
@@ -152,7 +152,7 @@ export const world = [
   {
     id: 2,
     cover: "../images/world/world2.jpg",
-    catgeory: "",
+    category: "",
     title: "Renewable energy dead as industry waits for Policy ",
     authorName: "Salman",
     time: "5 Jun - 2022",
@@ -162,7 +162,7 @@ export const world = [
   {
     id: 3,
     cover: "../images/world/world3.jpg",
-    catgeory: "",
+    category: "",
     title: "Mount Etna erupts fashion in nice looking pictures ",
     authorName: "Salman",
     time: "5 Jun - 2022",
@@ -170,7 +170,7 @@ export const world = [
   {
     id: 4,
     cover: "../images/world/world2.jpg",
-    catgeory: "",
+    category: "",
     title: "China asks Canada to add their full plan ",
     authorName: "Salman",
     time: "5 Jun - 2022",
@@ -178,7 +178,7 @@ export const world = [
   {
     id: 5,
     cover: "../images/world/world2.jpg",
-    catgeory: "",
+    category: "",
     title: "Serena secures comeback win against Ivanovic",
     authorName: "Salman",
     time: "5 Jun - 2022",
@@ -188,7 +188,7 @@ export const world = [
 export const popular = [
   {
     id: 1,
-    catgeory: "world",
+    category: "world",
     title: "Our Favorite Photos From All Around",
     date: "19. February 2022",
     comments: 0,
@@ -197,7 +197,7 @@ export const popular = [
   },
   {
     id: 2,
-    catgeory: "travel",
+    category: "travel",
     title: "Places To Visit For A Peaceful Holiday",
     date: "19. February 2022",
     comments: 0,
@@ -206,7 +206,7 @@ export const popular = [
   },
   {
     id: 3,
-    catgeory: "sport",
+    category: "sport",
     title: "Is This The New Boxing Champion?",
     date: "19. February 2022",
     comments: 0,
@@ -215,7 +215,7 @@ export const popular = [
   },
   {
     id: 4,
-    catgeory: "sport",
+    category: "sport",
     title: "A Detailed Retelling Of Our Trek Through The Dangerous Alps",
     date: "19. February 2022",
     comments: 0,
@@ -224,7 +224,7 @@ export const popular = [
   },
   {
     id: 5,
-    catgeory: "fun",
+    category: "fun",
     title: "Natural Sunlight Boosts Your Immunity",
     date: "19. February 2022",
     comments: 0,
@@ -233,7 +233,7 @@ export const popular = [
   },
   {
     id: 6,
-    catgeory: "health",
+    category: "health",
     title: "Health Benefits From Asparagus",
     date: "19. February 2022",
     comments: 0,
@@ -242,7 +242,7 @@ export const popular = [
   },
   {
     id: 7,
-    catgeory: "fashion",
+    category: "fashion",
     title: "The Valid Fashion Style For This Fall",
     date: "19. February 2022",
     comments: 0,
@@ -251,7 +251,7 @@ export const popular = [
   },
   {
     id: 8,
-    catgeory: "fun",
+    category: "fun",
     title: "Vote For The Top Tracks Of The Month",
     date: "19. February 2022",
     comments: 0,
@@ -260,7 +260,7 @@ export const popular = [
   },
   {
     id: 9,
-    catgeory: "fun",
+    category: "fun",
     title: "Unplugged Gigs To Remember",
     date: "19. February 2022",
     comments: 0,
@@ -269,7 +269,7 @@ export const popular = [
   },
   {
     id: 10,
-    catgeory: "fun",
+    category: "fun",
     title: "Picks For This Month’s Best Instagram Shots",
     date: "19. February 2022",
     comments: 0,
@@ -278,7 +278,7 @@ export const popular = [
   },
   {
     id: 11,
-    catgeory: "business",
+    category: "business",
     title: "Why Rich People Don’t Invest Much",
     date: "19. February 2022",
     comments: 0,
@@ -287,7 +287,7 @@ export const popular = [
   },
   {
     id: 12,
-    catgeory: "technology",
+    category: "technology",
     title: "Welcoming The Digital Generation",
     date: "19. February 2022",
     comments: 0,
@@ -296,7 +296,7 @@ export const popular = [
   },
   {
     id: 13,
-    catgeory: "fun",
+    category: "fun",
     title: "These Teens Are Absolutely Crazy For Beach Soccer",
     date: "19. February 2022",
     comments: 0,
@@ -305,7 +305,7 @@ export const popular = [
   },
   {
     id: 14,
-    catgeory: "fun",
+    category: "fun",
     title: "How To Organize The Best Bridal Party Ever",
     date: "19. February 2022",
     comments: 0,
@@ -314,7 +314,7 @@ export const popular = [
   },
   {
     id: 15,
-    catgeory: "technology",
+    category: "technology",
     title: "Social Networks And Social Life",
     date: "19. February 2022",
     comments: 0,
@@ -323,7 +323,7 @@ export const popular = [
   },
   {
     id: 16,
-    catgeory: "technology",
+    category: "technology",
     title: "Gaming Brings Couples Closer Together?",
     date: "19. February 2022",
     comments: 0,
@@ -335,28 +335,28 @@ export const popular = [
 export const ppost = [
   {
     id: 1,
-    catgeory: "world",
+    category: "world",
     title: "We Went Deep Underground For This Amazing Cave Shot",
     date: "19. February 2022",
     cover: "../images/ppost/pop1.jpg",
   },
   {
     id: 2,
-    catgeory: "health",
+    category: "health",
     title: "6 Reasons Why You Shouldn’t Skip Breakfast",
     date: "19. February 2022",
     cover: "../images/ppost/pop2.jpg",
   },
   {
     id: 3,
-    catgeory: "food",
+    category: "food",
     title: "Our Top 5 Restaurants For A Complete Culinary Experience",
     date: "19. February 2022",
     cover: "../images/ppost/pop3.jpg",
   },
   {
     id: 4,
-    catgeory: "fashion",
+    category: "fashion",
     title: "Hipster Chic Is In Again: Get Some Glasses",
     date: "19. February 2022",
     cover: "../images/ppost/pop4.jpg",
@@ -365,28 +365,28 @@ export const ppost = [
 export const lifestyle = [
   {
     id: 1,
-    catgeory: "world",
+    category: "world",
     title: "Mustang Teases With A New Promo",
     date: "19. February 2022",
     cover: "../images/life/life1.jpg",
   },
   {
     id: 2,
-    catgeory: "sport",
+    category: "sport",
     title: "Surfs Up – Places For Killer Waves",
     date: "19. February 2022",
     cover: "../images/life/life2.jpg",
   },
   {
     id: 3,
-    catgeory: "fashion",
+    category: "fashion",
     title: "Learn How To Nail Your Favorite Look",
     date: "19. February 2022",
     cover: "../images/life/life3.jpg",
   },
   {
     id: 4,
-    catgeory: "world",
+    category: "world",
     title: "Music Playing On R&B Stations",
     date: "19. February 2022",
     cover: "../images/life/life4.jpg",

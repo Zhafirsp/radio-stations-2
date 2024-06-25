@@ -1,0 +1,55 @@
+
+
+.videos {
+  /* background-image: url("https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
+}
+.text-videos {
+  margin-top: 80px;
+}
+
+/* .btn-videos {
+  margin: 0px; 
+  position: relative;
+  top: 50%;
+  left: 45%;
+} */
+
+
+@media (max-width: 991px) {
+  /* .btn-videos {
+    left: 43%;
+  } */
+}
+
+@media (max-width: 645px) {
+  .videos iframe {
+    width: 400px;
+    height: auto;
+  }
+
+  /* .btn-videos {
+    left: 39%;
+  } */
+
+  /* .thumbnail-image {
+    max-width: 60%;
+  } */
+}
+
+@media (max-width: 490px) {
+  .videos iframe {
+    width: 290px;
+    height: auto;
+  }
+
+  /* .btn-videos {
+    left: 37%;
+  } */
+}
+
+
+@media (max-width: 435px) {
+  /* .btn-videos {
+    left: 34%;
+  } */
+}

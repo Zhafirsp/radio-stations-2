@@ -11,7 +11,7 @@ const Policy = () => {
 
   return (
     <>
-      <Link className="terms" onClick={handleShow}> Privacy Policy </Link> 
+      <Link className="terms text-white" onClick={handleShow}> Privacy Policy </Link> 
             <Modal 
             size="lg" 
             aria-labelledby="contained-modal-title-vcenter" 

@@ -1,27 +1,23 @@
-import React, { lazy, useState, useRef, useEffect, useCallback } from 'react';
-import { Navbar, Container, Nav, NavDropdown, Offcanvas, Button, Form } from 'react-bootstrap';
+import React, { lazy, useState, useRef, useEffect, useCallback, useContext } from 'react';
+import { Navbar, Container, Nav, NavDropdown, Dropdown, Offcanvas, Button, Form } from 'react-bootstrap';
 import { ToastContainer, toast } from "react-toastify";
-import oz_bdg from '../../Assets/Img/logo_oz_bdg.png'
-import oz_jkt from '../../Assets/Img/logo_oz_jkt.png'
-import oz_bali from '../../Assets/Img/logo_oz_bali.png'
 import oz_logo from '../../Assets/Img/Logo2.png'
 import default_img from '../../Assets/Img/bg-vinyl.png'
-import supergraphic from '../../Assets/Img/SUPERGRAPHIC.png'
-import bg_atas from '../../Assets/Img/bg-atas.png'
-import bg_bawah from '../../Assets/Img/bg-bawah.png'
 import '../../Assets/Css/nav_top.css'
 import Player from "../Player/Player";
 import StationSelector from "../StationSelector/StationSelector";
 import IcecastMetadataPlayer from "icecast-metadata-player";
+import { useTheme } from '../../ThemeContext';
 import { Link } from 'react-router-dom';
 import { GiHamburgerMenu } from "react-icons/gi";
 import '../../Assets/Css/nav_bottom.css'
 import { IoSearchCircle, IoCloseCircle  } from "react-icons/io5";
 import axios from 'axios';
+import stations from './../../Data/stations.json'
+import { MdLightMode, MdDarkMode  } from "react-icons/md";
 
 const NOW_PLAYING = <span className='now-playing-text'>Now Playing</span>;
 const VISIT_STATION = <span className='text-title'>Visit OZ </span>;
-const ICECAST_METADATA_JS_DEMO = "Icecast Metadata JS Demo";
 const SELECT_STATION = "Select a station";
 const SELECT_OR_PLAY = "Press play";
 const LOADING = "Loading...";
@@ -29,53 +25,6 @@ const RECONNECTING = "Lost Connection. Reconnecting...";
 const CONNECTED = "Waiting metadata...";
 const SWITCHING = "Switching...";
 
-const stations = [
-  { 
-    name: 'Bali', 
-    mount: '/ozradiobali',
-    image: oz_bali, 
-    frequency: '101.2 FM', 
-    link: "https://ozradiobali.id/",
-    endpoints: [
-      {
-        "endpoint": "https://streaming.ozradiojakarta.com:8443/ozradiobali",
-        "codec": "AAC",
-        "metadataTypes": ["icestats"],
-        "statsSources": ["icy", "icestats"]
-      }
-    ]
-  },
-  { 
-    name: 'Jakarta', 
-    mount: '/ozjakarta',
-    image: oz_jkt, 
-    frequency: '90.8 FM', 
-    link: "https://ozradiojakarta.com/",
-    endpoints: [
-      {
-        "endpoint": "https://streaming.ozradiojakarta.com:8443/ozjakarta",
-        "codec": "AAC",
-        "metadataTypes": ["icestats"],
-        "statsSources": ["icy", "icestats"]
-      }
-    ]
-  },
-  { 
-    name: 'Bandung', 
-    mount: '/ozradiobandung',
-    image: oz_bdg, 
-    frequency: '103.1 FM', 
-    link: "https://bandung.ozradio.id/",
-    endpoints: [
-      {
-        "endpoint": "https://streaming.ozradiojakarta.com:8443/ozradiobandung",
-        "codec": "AAC",
-        "metadataTypes": ["icestats"],
-        "statsSources": ["icy", "icestats"]
-      }
-    ]
-  },
-  ];
 
 const NavTop = () => {
   const audioRef = useRef(null);
@@ -95,12 +44,17 @@ const NavTop = () => {
   const [streamUrl, setStreamUrl] = useState('');
   const [albumArtworkURL, setAlbumArtworkURL] = useState('');
 
+  const { theme, toggleTheme, ref } = useTheme();
 
   useEffect(() => {
       const fetchData = async () => {
         try {
           if (selectedStation) {
-          const response = await axios.get(`https://streaming.ozradiojakarta.com:8443/status-json.xsl?mount=${selectedStation.mount}`);
+          const response = await axios.get(`https://streaming.ozradiojakarta.com:8443/status-json.xsl?mount=${selectedStation.mount}`, {
+            headers: {
+              "Content-Type": "application/json",
+            }
+          });
           const data = response.data;
           if (data && data.icestats && data.icestats.source) {
             const { title, listenurl, server_url } = data.icestats.source;
@@ -116,7 +70,12 @@ const NavTop = () => {
             console.log('Memutar musik dari:', listenurl);
              // Panggil pencarian album artwork hanya jika ada judul lagu yang baru
          if (title) {
-            const searchResponse = await axios.get(`https://ozbackend.santuy.info/api/song/search?q=${encodeURIComponent(title)}`);
+            const searchResponse = await axios.get(`https://ozbackend.santuy.info/api/song/search?q=${encodeURIComponent(title)}`, {
+            // const searchResponse = await axios.get(`http://localhost:4001/api/song/search?q=${encodeURIComponent(title)}`, {
+              headers: {
+                "Content-Type": "application/json",
+              }
+            });
             const searchData = searchResponse.data;
 
             // Ambil URL gambar album dari respons data
@@ -150,20 +109,6 @@ const NavTop = () => {
     return () => clearInterval(interval);
   }, [selectedStation]);
 
-// const handlePlay = () => {
-//   if (setStreamUrl) {
-//     setPlaying(true)
-//     setStreamUrl('Playing');
-//     const audioElement = document.getElementById('audio-element');
-//     audioElement.play(); // Memulai pemutaran audio
-//   } else {
-//     setPlaying(false)
-//     setStreamUrl('Paused');
-//     const audioElement = document.getElementById('audio-element');
-//     audioElement.pause(); // Memulai pemutaran audio
-//   }
-// }
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -186,7 +131,7 @@ const [showSearch, setShowSearch] = useState(false);
     setShowSearch(!showSearch);
   };
 
-  const namespace = "urn:x-cast:icecast-metadata-js-demo";
+  const namespace = "urn:x-cast:OZ MEDIA";
   const castAPIId = "E3C20492";
 
   const sendCastMessage = useCallback(
@@ -416,7 +361,7 @@ const [showSearch, setShowSearch] = useState(false);
           <br/>
           {VISIT_STATION}
           <a
-            className='text-white'
+            className='text-white visit-oz-station'
             href={station.link}
             target="_blank"
             rel="noopener noreferrer"
@@ -426,6 +371,11 @@ const [showSearch, setShowSearch] = useState(false);
         </div>
       ),
   );
+
+  const handleThemeToggle = () => {
+    toggleTheme();
+    handleClose();
+  };
 
   return (
     <>
@@ -444,7 +394,7 @@ const [showSearch, setShowSearch] = useState(false);
           style={{ 
             // backdropFilter: isScrolled ? 'blur(40px)' : 'none',
             // WebkitBackdropFilter: isScrolled ? 'blur(40px)' : 'none',
-            backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${bg_atas})`
+            // backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${bg_atas})`,
             // backgroundColor:"black"
 
             }}>
@@ -465,7 +415,6 @@ const [showSearch, setShowSearch] = useState(false);
                           src={selectedStation ? albumArtworkURL : default_img}
                           alt=""
                           className=" mx-1 mb-5 img-radio img-fluid"
-                          style={{ width: '75px' }}
                           loading='lazy'
                         />
                       <div className='mt-4 ms-2 song-text col-md-12'>
@@ -474,7 +423,7 @@ const [showSearch, setShowSearch] = useState(false);
                             {currentTitle}
                             </p>
                         </div>
-                        <Link to="/search" className='search__icon text-warning'><IoSearchCircle /></Link>
+                        <Link to="/search" className='search__icon text-warning' aria-label='search-top'><IoSearchCircle /></Link>
                   </div>
           </Navbar>
         </Container>
@@ -488,7 +437,7 @@ const [showSearch, setShowSearch] = useState(false);
       // WebkitBackdropFilter: isScrolled ? 'blur(5px)' : 'none',
       // backgroundImage: selectedStation ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${albumArtworkURL})` : `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${default_img})`
       // backgroundColor:"black"
-      backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${bg_bawah})`
+      // backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${bg_bawah})`
 
     }}
   >
@@ -502,9 +451,12 @@ const [showSearch, setShowSearch] = useState(false);
                         <Nav.Link onClick={handleShow} className='offcanvas-menu text-white'><GiHamburgerMenu className='pb-1' />Menu</Nav.Link>
                         <Offcanvas show={show} onHide={handleClose} className='offcanvas-bg'>
                           <Offcanvas.Header closeButton closeVariant='white'>
-                            <Offcanvas.Title className='offcanvas-title'>Close</Offcanvas.Title>
+                            <Offcanvas.Title className='offcanvas-title'>Menu</Offcanvas.Title>
+                            <div onClick={handleThemeToggle} className="theme-toggle">
+                            {theme === 'light' ? <MdDarkMode size={24} /> : <MdLightMode size={24} />}
+                            </div>
                           </Offcanvas.Header>
-                          <Offcanvas.Body className='fs-5'>
+                          <Offcanvas.Body className='fs-5 offcanvas-body'>
                             {/* <form action="https://www.google.com/search" target='_blank' className={`search ${showSearch ? 'show-search' : ''}`} id="search-bar">
                             <input type="search" placeholder="Search..." name="q" className="search__input"/>
                                 <div class="search__button3" id="search-button" onClick={toggleSearch}>
@@ -512,18 +464,22 @@ const [showSearch, setShowSearch] = useState(false);
                                 <IoCloseCircle className='search__close text-warning'/>
                                 </div>
                             </form> */}
-                              <Nav.Link><Link to="/" className='text-white'>Home</Link></Nav.Link>
-                              <Nav.Link><Link to="/news" className='text-white'>News</Link></Nav.Link>
-                              <Nav.Link><Link to="/radio" className='text-white'>Radio</Link></Nav.Link>
-                              <Nav.Link><Link to="/youtube" className='text-white'>TV</Link></Nav.Link>
-                              <Nav.Link><Link to="/event" className='text-white'>Events</Link></Nav.Link>
-                              <Nav.Link><Link to="/playlist" className='text-white'>Playlist</Link></Nav.Link>
+                            <Form action="https://www.google.com/search" target='_blank' className='search-offcanvas'>
+                                <Form.Control type="input" placeholder="Search OZ" name="q" style={{ borderRadius:"25px", marginBottom:"20px", width:"250px", paddingTop:"10px" }}></Form.Control>
+                                {/* <IoSearchCircle className='text-warning'/> */}
+                            </Form>
+                              <Nav.Link><Link to="/" className='text-white' onClick={handleClose}>Home</Link></Nav.Link>
+                              <Nav.Link><Link to="/news" className='text-white' onClick={handleClose}>News</Link></Nav.Link>
+                              <Nav.Link><Link to="/radio/category/:category" className='text-white' onClick={handleClose}>Radio</Link></Nav.Link>
+                              <Nav.Link><Link to="/oztv" className='text-white' onClick={handleClose}>TV</Link></Nav.Link>
+                              <Nav.Link><Link to="/event" className='text-white' onClick={handleClose}>Events</Link></Nav.Link>
+                              <Nav.Link><Link to="/playlist" className='text-white' onClick={handleClose}>Playlist</Link></Nav.Link>
                             <hr className='devider-offcanvas'/>
-                              <Nav.Link><Link to="#" className='text-white'>Sustainability</Link></Nav.Link>
-                              <Nav.Link><Link to="/contact" className='text-white'>Advertising</Link></Nav.Link>
-                              <Nav.Link><Link to="#" className='text-white'>Community</Link></Nav.Link>
-                              <Nav.Link><Link to="/contact" className='text-white'>Contact Us</Link></Nav.Link>
-                              <Nav.Link><Link to="/about" className='text-white'>About</Link></Nav.Link>
+                              <Nav.Link><Link to="#" className='text-white' onClick={handleClose}>Sustainability</Link></Nav.Link>
+                              <Nav.Link><Link to="/contact" className='text-white' onClick={handleClose}>Advertising</Link></Nav.Link>
+                              <Nav.Link><Link to="#" className='text-white' onClick={handleClose}>Community</Link></Nav.Link>
+                              <Nav.Link><Link to="/contact" className='text-white' onClick={handleClose}>Contact Us</Link></Nav.Link>
+                              <Nav.Link><Link to="/about" className='text-white' onClick={handleClose}>About</Link></Nav.Link>
                           </Offcanvas.Body>
                         </Offcanvas>
                             {/* <NavDropdown title="City" id="navbarScrollingDropdown">
@@ -533,12 +489,12 @@ const [showSearch, setShowSearch] = useState(false);
                                 <NavDropdown.Item href="#">Aceh (102.8 FM) </NavDropdown.Item>
                             </NavDropdown> */}
                                 </Nav>
-                            <Link to="/search"><IoSearchCircle className='search__icon2 text-warning'/></Link>
+                            <Link to="/search" aria-label='search-bottom'><IoSearchCircle className='search__icon2 text-warning'/></Link>
                             
                                 {/* <form action="https://www.google.com/search" target='_blank' className={`search ${showSearch ? 'show-search' : ''}`} id="search-bar"> */}
                               {/* </form> */}
                           {/* </Navbar.Collapse> */}
-                        <div className="station-selector fs-5 fw-medium mt-4 d-flex col-md-12">
+                        <div className="station-selector d-flex col-md-8 col-lg-12">
                           <p className='station-streaming'>Streaming: </p>
                           <StationSelector 
                             allow="autoplay"

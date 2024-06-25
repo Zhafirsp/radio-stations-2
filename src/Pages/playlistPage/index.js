@@ -14,8 +14,7 @@ const InterviewPage = () => {
   const styles = {
    width: "100%",
    backgroundSize: "cover", 
-   height: '500px',
-   marginTop: '30px'
+   height: '500px'
   };
 
    return (
@@ -36,7 +35,7 @@ const InterviewPage = () => {
           <Row>
             <Col>
               <iframe 
-                style={{ borderRadius:"12px", marginTop:"-175px"}} 
+                style={{ borderRadius:"12px"}} 
                 src="https://open.spotify.com/embed/playlist/25nV8tDjjpLUFX9Zj5K0LL?utm_source=generator" 
                 width="100%" 
                 height="352" 
@@ -50,7 +49,7 @@ const InterviewPage = () => {
             </Col>
             <Col>
               <iframe 
-                style={{ borderRadius:"12px", marginTop:"-175px"}} 
+                style={{ borderRadius:"12px"}} 
                 src="https://open.spotify.com/embed/playlist/04zw0dEQMHuKCixYpxUmlK?utm_source=generator" 
                 width="100%" 
                 height="352" 

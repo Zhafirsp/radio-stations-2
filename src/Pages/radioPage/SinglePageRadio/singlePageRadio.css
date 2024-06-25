@@ -1,0 +1,49 @@
+.radio-showcase {
+  margin-top: 50px !important;
+  margin-bottom: 300px !important;
+}
+
+
+.icons-footer li {
+  transition: all 0.3s linear;
+}
+
+.icons-footer li:hover {
+  transform: scale(1.5);
+}
+
+.youtube:hover {
+  color: #FF0000 !important;
+}
+
+.spotify:hover {
+  color: #1ED760 !important;
+}
+
+.footer-icons {
+  margin-top: 2.5rem;
+}
+.footer-icons svg {
+  font-size: 1.5rem;
+  /* margin-right: 1.25rem; */
+  margin-top: -55px;
+  margin-left: -30px;
+}
+
+.icons-footer{
+  font-size: 24px;
+  margin-left: -15px;
+}
+
+@media (max-width: 800px) {
+  .icons-footer {
+    /* text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center; */
+    font-size: 24px;
+    /* margin-left: -15px; */
+  }
+  
+}
+

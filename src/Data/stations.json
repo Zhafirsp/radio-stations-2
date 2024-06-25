@@ -1,0 +1,44 @@
+[
+  { 
+    "name": "Bali", 
+    "mount": "/ozradiobali",
+    "frequency": "101.2 FM", 
+    "link": "https://ozradiobali.id/",
+    "endpoints": [
+      {
+        "endpoint": "https://streaming.ozradiojakarta.com:8443/ozradiobali",
+        "codec": "AAC",
+        "metadataTypes": ["icestats"],
+        "statsSources": ["icy", "icestats"]
+      }
+    ]
+  },
+  { 
+    "name": "Jakarta", 
+    "mount": "/ozjakarta",
+    "frequency": "90.8 FM", 
+    "link": "https://ozradiojakarta.com/",
+    "endpoints": [
+      {
+        "endpoint": "https://streaming.ozradiojakarta.com:8443/ozjakarta",
+        "codec": "AAC",
+        "metadataTypes": ["icestats"],
+        "statsSources": ["icy", "icestats"]
+      }
+    ]
+  },
+  { 
+    "name": "Bandung", 
+    "mount": "/ozradiobandung",
+    "frequency": "103.1 FM", 
+    "link": "https://bandung.ozradio.id/",
+    "endpoints": [
+      {
+        "endpoint": "https://streaming.ozradiojakarta.com:8443/ozradiobandung",
+        "codec": "AAC",
+        "metadataTypes": ["icestats"],
+        "statsSources": ["icy", "icestats"]
+      }
+    ]
+  }
+  ]

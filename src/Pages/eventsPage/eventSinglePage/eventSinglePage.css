@@ -1,0 +1,50 @@
+.single-event {
+  margin-top: 100px;
+}
+
+.breadcrumb-item a:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 0%;
+  position: absolute;
+  background: rgb(252,186,51);
+  background: linear-gradient(90deg, rgba(252,186,51,1) 0%, rgba(33,138,89,1) 100%);
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+ 
+.breadcrumb-item a:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+
+.breadcrumb-item a{
+  color: var(--text-color) !important;
+}
+
+@media (max-width:768px) {
+  .single-event {
+    margin-bottom: 500px;
+  }
+}
+
+@media (max-width:444px) {
+  .single-event {
+    margin-bottom: 700px;
+  }
+}
+
+@media (max-width:390px) {
+  .single-event {
+    margin-bottom: 900px;
+  }
+}
+
+@media (max-width:364px) {
+  .single-event {
+    margin-bottom: 1200px;
+  }
+}

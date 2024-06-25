@@ -1,0 +1,100 @@
+.loading-screen {
+  width: 175px;
+  height: 175px;
+  background-color: #ffc352;
+  border-radius: 10px;
+  position: fixed; /* Menggunakan fixed agar selalu di tengah layar */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Offset untuk memusatkan */
+  box-shadow: 5px 5px 0 0 #262626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Memastikan berada di depan elemen lain */
+}
+
+.loading-plate {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-plate .loading-black,
+.loading-plate .loading-white,
+.loading-plate .loading-center,
+.loading-plate .loading-border {
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-plate .loading-black {
+  width: 150px;
+  height: 150px;
+  background-color: #262626;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.loading-plate .loading-white {
+  width: 70px;
+  height: 70px;
+  background-color: #F6F6F6;
+}
+
+.loading-plate .loading-center {
+  width: 20px;
+  height: 20px;
+  background-color: #218A59;
+}
+
+.loading-plate .loading-border {
+  width: 111px;
+  height: 111px;
+  border-top: 3px solid #FCBA33;
+  border-bottom: 3px solid #FCBA33;
+  border-left: 3px solid #262626;
+  border-right: 3px solid #262626;
+}
+
+.loading-player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: fit-content;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  rotate: -45deg;
+}
+
+.loading-player .player-circ {
+  width: 25px;
+  height: 25px;
+  background-color: #f6f6f6;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.loading-player .player-rect {
+  width: 10px;
+  height: 55px;
+  background-color: #7D5333;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5px;
+}

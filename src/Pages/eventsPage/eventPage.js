@@ -1,184 +1,139 @@
-import React from "react"
-import { Col, Row, Container, Card, Button } from 'react-bootstrap';
-import CardEvent from "../../Components/event/cardEvent";
-import satine from '../../Assets/Img/satine_interview.jpg'
-import '../eventsPage/evenPage.css'
-import danilla from "../../Assets/Img/danilla_interview.jpg"
-import rimba from "../../Assets/Img/rimba_interview.jpg"
+import React, { useState, useEffect, useContext } from "react";
+import { Col, Row, Container, Button } from 'react-bootstrap';
+import './evenPage.css'
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { ThemeContext } from "../../ThemeContext";
 
 const EventPages = () => {
+  
+  const { theme } = useContext(ThemeContext); // Use context
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+          const response = await axios.get(`https://adminoz.santuy.info/api/events`);
+          const sortedEvents = response.data.events.data.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+          setEvents(sortedEvents);
+      } catch (error) {
+        console.error("Error fetching event data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const getImageUrl = (imageUrl) => {
+    if (!imageUrl) return ""; // Tambahkan pengecekan kondisi agar tidak memanggil replace pada nilai null
+    
+    const baseUrl = 'https://adminoz.santuy.info/storage/';
+    // Cek apakah URL mengandung 'public', jika iya, ganti dengan 'storage', jika tidak, tambahkan base URL
+    if (imageUrl.includes('public')) {
+      return baseUrl + imageUrl.replace('public', 'storage');
+    } else {
+      return baseUrl + imageUrl;
+    }
+  };
+
+  const formatDate = (dateString) => {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const dateObj = new Date(dateString);
+    const month = months[dateObj.getMonth()];
+    const day = dateObj.getDate();
+    return `${month} ${day}`;
+  };
+  
   return (
     <div className="eventPage">
-      <div className="about-section-text-container py-5 event-header">
+      <div className="event-page-container py-5 event-header">
         <h1 className="display-5 fw-bold text-center event-header-text">
-            Upcoming <span style={{ color:"#F49C27" }} className="home-oz">OZ Radio </span> Events
+            Upcoming <span style={{ color:"#F49C27" }} className="home-oz">OZ Radio </span> event
         </h1>
       </div>
-    <section style={{ backgroundColor:"#f6f6f6" }} className="event">
+    <section style={{ backgroundColor: theme === 'light' ? "#f6f6f6" : "#090909" }} className="event">
     <Container>
-      <div className="about-section-text-container py-5">
-        <div className="card_container d-flex">
-          <article className="card__article container col-xxl-8 px-4 py-5">
-            <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-              <div className="col-lg-6">
-                <div className="card__content">
-                  <img src={danilla} alt="image" width={"350px"} className="img-fluid" />
-                  <div className="card__data">
-                        <span className="card__description">April 21</span>
-                        <h3 className="card__title fw-bold fs-5"><a href="/single-event">DJ Shadow session on OZ Radio (BROADCAST ONLY)</a></h3>
-                        <a href="/single-event" className="card__button">OZ - STUDIO (NW ROOMS)</a>
-                  </div>
-                </div>
+    <Row className=" flex-row-reverse g-5 py-3">
+            <Col lg={7} md={12} sm={12} className="card__content">
+              {events && events.length > 0 && (
+                <>
+                <img 
+                  src={getImageUrl(events[0].image)} 
+                  alt={`image0`}
+                  className="img-fluid mx-auto d-block"
+                />
+                  <div className="card__data" >
+                        <div>
+                          <span className="card__description">{formatDate(events[0].updated_at)}</span>
+                          <h2 className="card__title fw-bold fs-5"><Link className="text-white eventpage-title" to={`/event/${events[0].id}`}>{events[0].title}</Link></h2>
+                          <Link to={`/event`} className="card__button">{events[0].category.name}</Link>
+                          </div>
+                    </div>
+                  </>
+              )}
+              </Col>
+            <Col lg={5} md={12} sm={12} className="card__content">
+            {events && events.length > 1 && (
+                <>
+                <img 
+                  src={getImageUrl(events[1].image)} 
+                  alt={`image1`} 
+                  className="img-fluid mx-auto d-block"
+                  />
+                  <div className="card__data" >
+                  <div>
+                    <span className="card__description">{formatDate(events[1].updated_at)}</span>
+                    <h2 className="card__title fw-bold fs-5"><Link className="text-white eventpage-title" to={`/event/${events[1].id}`}>{events[1].title}</Link></h2>
+                    <Link to={"/event"} className="card__button">{events[1].category.name}</Link>
+                    </div>
               </div>
-              <div className="col-lg-6">
-                <div div className="card__content">
-                  <img src={rimba} alt="image" width={"350px"} className="img-fluid"/>
-                  <div className="card__data">
-                    <span className="card__description">April 20</span>
-                    <h2 className="card__title fw-bold fs-5">Black History is Now</h2>
-                    <a href="#" className="card__button">Learn More</a>
-                  </div>
-                </div>
+            </>
+        )}
+                <div className="mt-2">
+                {events && events.length > 1 && (
+              <div>
+                  {events.slice(2, 5).map((eventItem, index) => (
+                    <Row key={index}>
+                          <hr style={{ color:"#F49C27" }}/>
+                          <Col sm={2} className="mt-1">
+                          <span className="primary-text eventpage-date-list text-center fs-6">{formatDate(eventItem.updated_at)}</span>
+                          </Col>
+                          <Col sm={10} className="">
+                            <span className="fs-5 eventpage-title-list"><Link to={`/event/${eventItem.id}`}>{eventItem.title}</Link></span>
+                            <br/>
+                            <Link to={"/single-event"} className="card__button">{eventItem.category.name}</Link>
+                          </Col>
+                </Row>
+              ))}
               </div>
+            )}
             </div>
-          </article>
-        </div>
-      </div>
+              </Col>
+            </Row>
     </Container>
     </section>
       <div className="event-showcase py-5" data-aos="fade-left">
-        <Row>
-          <Col className="mb-3">
-            <h1 className="display-5 fw-bold text-center">
-              <span style={{ color:"#F49C27" }} className="home-oz">MoPOP's 2024 </span> Sound Off! Showcase
-            </h1>
-          </Col>
-        </Row>
-        <div className="container col-xxl-8 px-4 " style={{ height: 757 }}>
-            <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div className="col-lg-6">
-                <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3 mt-3">Special Music Event on <span className="span-hero">MoPOP’s Sound Off! </span>Showcase</h1> 
-                <p className="lead fw-lighter">is your chance to witness the next big thing in NW music as young artists from around the region take to the Sky Church stage for three nights of heart, guts, and glory.</p>
-                <p className="lead fw-lighter">As a legacy under-21 music showcase in the Pacific Northwest, MoPOP’s Sound Off! connects young artists with the tools and resources to dig into their sound, grow their business skills, and level up their artistry.</p>
-              <Button variant="outline-dark" className="text-center  py-2 px-4 border border-secondary rounded-pill fs-5"><a href="https://mopop.org/sound-off" target="_blank">Get Tickets Now</a></Button>
-              </div>
-              <div className="col-10 col-sm-8 col-lg-6">
-                <img src={satine} className="hero-img d-block mx-lg-auto img-fluid ms-4" alt="Bootstrap Themes" width="700" height="500" loading="lazy"/>
-              </div>
-            </div>
-          </div>
-          <Container>
-          <table className="table table-borderless table-striped table-responsive table-event my-5">
-            <thead>
-              <tr>
-                <th scope="col" className="text-secondary">April 20TH</th>
-                <th scope="col" className="text-secondary">April 24TH</th>
-                <th scope="col" className="text-secondary">May 2ND</th>
-              </tr>
-            </thead>
-            <tbody className="fs-6">
-              <tr>
-                <td scope="row">Lucia Flores-Wiseman</td>
-                <td>Sophia Shoshana</td>
-                <td>Rae</td>
-              </tr>
-              <tr>
-                <td scope="row">The Rat Utopia Experiment</td>
-                <td>Joint Souls</td>
-                <td>miacompactdisk</td>
-              </tr>
-              <tr>
-                <td scope="row">LCN!</td>
-                <td>Smooth Sailing</td>
-                <td>King Zaae</td>
-              </tr>
-              <tr>
-                <td scope="row"></td>
-                <td>Brannon Warn-Johnston</td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-          <div 
-          style={{ 
-            float:"none", 
-            clear: "both", 
-            width: "100%", 
-            position: "relative", 
-            paddingBottom: "56.25%", 
-            paddingTop: "25px", 
-            height: "0", 
-            }}
-            className="container-fluid">
-            <iframe 
-            width="770" 
-            height="415" 
-            src="https://www.youtube.com/embed/DxbRSL8-nB8?si=FEQCmpi5p3Z1oECK&autoplay=1" 
-            title="YouTube video player"
-            className="mb-5 d-block ms-auto me-auto"
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen
-            style={{ position: "absolute", top: "0", left: "0", width: "100%", height: "100%" }}
-            >
-            </iframe>
-          </div>
-          </Container>
-          <section style={{ backgroundColor:"#f6f6f6" }} data-aos="fade-down">
-            <Container fluid>
-              <div className="my-5">
-                <Row>
-                  <Col className="my-5">
-                    <h1 className="display-5 fw-bold text-center">
-                      Upcoming <span style={{ color:"#F49C27" }}>OZ Radio </span> Events + In-Studio Sessions
-                    </h1>
-                  </Col>
-                </Row>
-                <article className=" mx-5">
-              <div className="card__content">
-                <img src={danilla} alt="image" className="event_img img-fluid mb-3" />
-                <div className="card__data">
-                  <Row>
-                      <span className="card__description">April 21</span>
-                      <h3 className="card__title fw-bold fs-5"><a href="/single-event">DJ Shadow session on OZ Radio (BROADCAST ONLY)</a></h3>
-                      <a href="/single-event" className="card__button">OZ - STUDIO (NW ROOMS)</a>
-                  </Row>
+        {events && events.length > 0 && (
+          <>
+           <Col className="mb-3 mx-5">
+              <h1 className="special-event display-5 fw-bold text-center">Special Event <br/>
+                <span style={{ color:"#F49C27" }} className="">{events[0].title}</span>
+              </h1>
+            </Col>
+          <div className="container col-xxl-8 " style={{ height: 991 }}>
+              <div className="row flex-lg-row align-items-center g-5 py-5">
+                <div className="col-10 col-sm-8 col-lg-6 d-block mx-auto">
+                  <img src={getImageUrl(events[0].image)} className="satine-img img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"/>
+                </div>
+              <div className="col-lg-6">
+                  <h1 className="special-event display-5 text-body-emphasis lh-1 mb-3 mt-3">Special Event <br/> <span className="span-hero">{events[0].title}</span></h1> 
+                  <p className="lead fw-lighter" dangerouslySetInnerHTML={{ __html: events[0].excerpt }}></p>
+                  <Link to={`/event/${events[0].id}`}  rel="noreferrer"><Button variant="outline-dark" className="text-center px-4 py-2 border border-secondary rounded-pill fs-5">Event Detail</Button></Link>
                 </div>
               </div>
-      
-              <div className="col-md-6 offset-md-3">
-                <Row>
-                    <Col sm={2} className="my-3">
-                      <span className=" fw-lighter primary-text text-center fs-6 ">April<br/>23</span>
-                    </Col>
-                    <Col className="my-3">
-                      <span className=" fs-5 mt-3"><a href="#">DeVotchKa LIVE on OZ (OPEN TO THE PUBLIC)</a></span>
-                      <br/>
-                      <span className=""><a href="#">OZ - GATHERING SPACE</a></span>
-                    </Col>
-                    <hr style={{ color:"#F49C27" }}/>
-                    <Col sm={2} className="my-3">
-                      <span className=" fw-lighter primary-text text-center fs-6">April<br/>25</span>
-                    </Col>
-                    <Col className="my-3">
-                      <span className=" fs-5"><a href="#">DJ Shadow session on OZ (BROADCAST ONLY)</a></span>
-                      <br/>
-                      <span className=""><a href="#">OZ - STUDIO (NW ROOMS)</a></span>
-                    </Col >
-                    <hr style={{ color:"#F49C27" }}/>
-                    <Col sm={2} className="my-3">
-                      <span className=" fw-lighter primary-text text-center fs-6">April<br/>27</span>
-                    </Col>
-                    <Col className="my-3">
-                      <span className=" fs-5"><a href="#">Drinking Boys and Girls Choir Live on OZ (OPEN TO THE PUBLIC)</a></span>
-                      <br/>
-                      <span className=""><a href="#">OZ - STUDIO (NW ROOMS)</a></span>
-                    </Col>
-                  </Row>
-              </div>
-            </article>
-              </div>
-            </Container>
-            </section>
+            </div>
+            </>
+        )}
       </div>
     </div>
   )

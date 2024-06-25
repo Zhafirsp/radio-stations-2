@@ -1,15 +1,8 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
 import styles from "./Player.module.css";
-import { PiPlayCircleThin , PiPauseCircleThin  } from "react-icons/pi";
-import {
-  IoMdVolumeHigh,
-  IoMdVolumeOff,
-  IoMdVolumeLow,
-} from 'react-icons/io';
+import { BsPlayCircle, BsPauseCircle } from "react-icons/bs";
 import axios from "axios";
 
-const VISIT_STATION = "Visit this station at ";
-const ICECAST_METADATA_JS_DEMO = "Icecast Metadata JS Demo";
 
 const CodecInfo = React.memo(({ codecInfo }) => {
   const canvas = useRef();
@@ -56,7 +49,7 @@ const CodecInfo = React.memo(({ codecInfo }) => {
   return <canvas ref={canvas} title={title} className={styles.codecInfo} />;
 });
 
-const PlayerButton = React.memo(({ station, toggle, playing, volume, setVolume, muteVolume, setMuteVolume }) => (
+const PlayerButton = React.memo(({ station, toggle, playing}) => (
   <div className="play-control">
     <a 
       disabled={!station}
@@ -65,33 +58,19 @@ const PlayerButton = React.memo(({ station, toggle, playing, volume, setVolume, 
       onClick={toggle} 
       allow="autoplay"
     >
-      {playing ? <PiPauseCircleThin /> : <PiPlayCircleThin />}
+      {playing 
+      ? 
+      <BsPauseCircle/>
+      : 
+      <BsPlayCircle/>}
     </a>
   </div>
 ));
 
-const Player = ({ station, playing, toggle, codecInfo }) => {
+const Player = ({ station, playing, toggle }) => {
   
   const audioRef = useRef(null);
-  const [volume, setVolume] = useState(60);
-  const [muteVolume, setMuteVolume] = useState(false);
-  const [metadata, setMetadata] = useState(null);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = muteVolume ? 0 : volume / 100;
-    }
-  }, [volume, muteVolume]);
-
   
-  const handleToggleMute = () => {
-    setMuteVolume((prevMuteVolume) => !prevMuteVolume);
-  };
-  
-
-
-  const title = metadata?.StreamTitle || metadata?.TITLE;
-  document.title = title ? `${title} | ${ICECAST_METADATA_JS_DEMO}` : ICECAST_METADATA_JS_DEMO;
 
   return (
     <>

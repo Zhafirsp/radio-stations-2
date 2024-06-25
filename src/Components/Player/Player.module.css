@@ -16,7 +16,11 @@
   padding-bottom: calc(1px + 0.5vmin);
   margin-top: -50px;
   margin-left: -35px;
-  margin-right: 10px;
+  margin-right: 25px;
+}
+
+.player:hover {
+  filter: brightness(80%);
 }
 
 .button {
