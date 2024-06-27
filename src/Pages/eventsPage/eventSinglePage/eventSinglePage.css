@@ -1,5 +1,10 @@
 .single-event {
   margin-top: 100px;
+  margin-bottom: 500px;
+}
+
+.event-showcase {
+  margin-top: 50px;
 }
 
 .breadcrumb-item a:after {    

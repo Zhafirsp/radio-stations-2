@@ -62,7 +62,7 @@ const SinglePageRadio  = () => {
           <div className="container col-xxl-8 " style={{ height: 991 }}>
             <Row className="justify-content-center g-5 py-5">
               <Col lg={3} sm={12} className="">
-                <img src={getImageUrl(radio.image)} className="img-fluid" alt="Radio Show" width="300" height="300" loading="lazy"/>
+                <img src={getImageUrl(radio.image)} className="d-block mx-auto img-fluid" alt="Radio Show" width="300" height="300" loading="lazy"/>
               </Col>
               <Col lg={6} sm={12} className="">
               <p className="lead fw-lighter">{radio.excerpt}</p>
