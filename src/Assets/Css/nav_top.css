@@ -35,6 +35,25 @@ body, html {
   color: var(--text-color);
 }
 
+.icon--moon {
+  color: #bbbbbb;
+}
+
+.icon--sun {
+  animation: rotate 15s linear infinite;
+  color: #fce1a7;
+}
+
+@keyframes rotate {
+ 
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .theme-toggle {
   cursor: pointer;
@@ -187,6 +206,10 @@ body, html {
   .text-playing {
     margin-top: -17px;
     color: #7BA142;
+  }
+
+  .visit-oz-station{
+    color: grey !important;
   }
 
   .visit-oz-station:hover{

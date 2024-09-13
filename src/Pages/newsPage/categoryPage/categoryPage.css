@@ -1,0 +1,9 @@
+.category-post {
+  margin-left: -30px;
+}
+
+@media screen and (max-width:1024px){
+  .category-post {
+    margin-left: -5px;
+  }
+}

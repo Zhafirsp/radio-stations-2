@@ -3,11 +3,13 @@
   --text-color-light: #000000;
   --primary-color-light: #007bff;
   --link-color-light: #090909;
+  --category-color-light: #090909; /* Perbaikan penulisan variabel ini */
   
   --bg-color-dark: #121212;
   --text-color-dark: #ffffff;
   --primary-color-dark: #bb86fc;
   --link-color-dark: #f6f6f6;
+  --category-color-dark: #ffffff; /* Perbaikan penulisan variabel ini */
 }
 
 [data-theme='light'] {
@@ -15,6 +17,7 @@
   --text-color: var(--text-color-light);
   --primary-color: var(--primary-color-light);
   --link-color: var(--link-color-light);
+  --category-color: var(--catergory-color-light)
 }
 
 [data-theme='dark'] {
@@ -22,6 +25,7 @@
   --text-color: var(--text-color-dark);
   --primary-color: var(--primary-color-dark);
   --link-color: var(--link-color-dark);
+  --category-color: var(--catergory-color-dark)
 }
 
 
@@ -40,6 +44,7 @@ img {
   /* width: 85vw; */
   /* max-width: 1900px; */
   margin: 0rem auto;
+  justify-content: space-between;
 }
 .rotating-image {
   pointer-events: none;
@@ -90,7 +95,7 @@ img {
 }
 
 .header-about{
-  margin-top: 150px !important;
+  margin-top: 130px !important;
 }
 
 /* Scroller styling */

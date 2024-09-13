@@ -4,6 +4,8 @@ import heroImg from '../Assets/Img/concert.jpg'
 import heroImg1 from '../Assets/Img/concert1.jpg'
 import heroImg2 from '../Assets/Img/concert2.jpg'
 import heroImg3 from '../Assets/Img/concert3.jpg'
+import Heroimg from '../Assets/Img/Hero.png'
+import Logo from '../Assets/Img/Logo_Awal.png'
 import { Parallax, Background } from "react-parallax";
 import Slider from "react-slick";
 
@@ -28,14 +30,18 @@ const Hero = () => {
 
   return (
     <>
-      <section className='hero mt-4' data-aos="fade-down" >
+      <div className=' mt-4 mb-4' >
+        <img src={Heroimg} className="hero d-block mx-lg-auto img-fluid" />
         {/* Latar belakang blur */}
         {/* <div className="hero-background" style={{ backgroundImage: `url(${heroImg})` }}></div> */}
-        <Slider {...settings}>
-        <Parallax bgImage={heroImg} strength={500} style={styles} blur={10}>
+        {/* <Slider {...settings}>
+        <Parallax bgImage={Hero} strength={500} style={styles} blur={10}> */}
         {/* Konten utama */}
-          <div className="container col-xxl-8 px-4 py-5" style={{ height: 757 }}>
-            <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
+          {/* <div className="container col-xxl-8 px-4 py-5" style={{ height: 757 }}> */}
+            {/* <img className="logo-hero" src={Logo} width={450} />
+            <p className="text-hero1">GET CLOSER TO<br/> WHAT MOVES<br/> YOU.</p>
+            <p className="text-hero">Music,Sport,Talk, And Podcasts</p> */}
+            {/* <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div className="col-lg-6 px-4">
               <span className="span-hero fs-2">February 25, 2024</span>
                 <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3 mt-3">Special Music Event on <span className="span-hero">OZ Jakarta </span></h1>
@@ -45,11 +51,11 @@ const Hero = () => {
               <div className="col-10 col-sm-8 col-lg-6">
                 <img src={heroImg} className="hero-img d-block mx-lg-auto img-fluid ms-4" alt="Bootstrap Themes" width="700" height="500" loading="lazy"/>
               </div>
-            </div>
-          </div>
-        </Parallax>
-        <Parallax bgImage={heroImg1} strength={500} style={styles} blur={10}>
-        {/* Konten utama */}
+            </div> */}
+          {/* </div> */}
+          
+        {/* </Parallax> */}
+        {/* <Parallax bgImage={heroImg1} strength={500} style={styles} blur={10}>
           <div className="container col-xxl-8 px-4 py-5" style={{ height: 757 }}>
             <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div className="col-lg-6 px-4">
@@ -65,7 +71,6 @@ const Hero = () => {
           </div>
         </Parallax>
         <Parallax bgImage={heroImg2} strength={500} style={styles} blur={10}>
-        {/* Konten utama */}
           <div className="container col-xxl-8 px-4 py-5" style={{ height: 757 }}>
             <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div className="col-lg-6 px-4">
@@ -81,7 +86,6 @@ const Hero = () => {
           </div>
         </Parallax>
         <Parallax bgImage={heroImg3} strength={500} style={styles} blur={10}>
-        {/* Konten utama */}
           <div className="container col-xxl-8 px-4 py-5" style={{ height: 757 }}>
             <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div className="col-lg-6 px-4">
@@ -95,9 +99,9 @@ const Hero = () => {
               </div>
             </div>
           </div>
-        </Parallax>
-        </Slider>
-      </section>
+        </Parallax> */}
+        {/* </Slider> */}
+      </div>
     </>
   )
 }

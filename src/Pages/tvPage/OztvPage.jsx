@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Card from "./Card";
-import SinglePageSlider from "../singlePages/slider/singlePageSlider";
+import SinglePageSlider from "../newsPage/singlePages/slider/singlePageSlider";
 import heroImg from '../../Assets/Img/concert.jpg'
 import heroImg1 from '../../Assets/Img/concert1.jpg'
 import heroImg2 from '../../Assets/Img/concert2.jpg'
 import heroImg3 from '../../Assets/Img/concert3.jpg'
 import { Link } from "react-router-dom";
 import './oztv.css';
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import axios from "axios";
 
 const OZTV = () => {
@@ -53,14 +53,17 @@ const OZTV = () => {
         Not only can you enjoy these performances on the air, but you can also relive the experience 
         with our live videos. Subscribe to the <Link to={"https://www.youtube.com/hashtag/ozclusive"} className="fw-bold" target="_blank">OZ Youtube channel</Link> for more great live sessions like 
         these. And check out some of the recent performances from our Seattle Center studios below.</p>
-          {videos.map((video, index) => (
+        <Row className="">
+            {videos.map((video) => (
+              <Col key={video.id} className="mb-4" lg={4}>
                 <Card 
-                  key={video.id}
                   videoTitle={video.title} 
                   videoBody={video.body} 
                   thumbnailUrl={getImageUrl(video.image)} 
                 />
+              </Col>
             ))}
+          </Row>
     </Container>
   );
 };

@@ -1,51 +1,106 @@
 import React from "react";
-import ProfilePic from "../Assets/Img/john-doe-image.png";
 import { Carousel } from 'react-bootstrap';
 import { BsInstagram, BsTwitter } from "react-icons/bs";
 import { FaTiktok   } from "react-icons/fa";
-import BannerBackground from "../Assets/Img/bg1.png";
-import BannerBackground2 from "../Assets/Img/bg2.png";
-import Kinta from "../Assets/Img/DevinaKinta.png";
-import Fifi from "../Assets/Img/Fifi.png";
+import Vivi from "../Assets/Img/broadcaster/announ7.png";
+import Aura from "../Assets/Img/broadcaster/announ8.png";
+import Diki from "../Assets/Img/broadcaster/announ9.png";
+import Rosa from "../Assets/Img/broadcaster/announ10.png";
+import Nabila from "../Assets/Img/broadcaster/announ11.png";
+import Dama from "../Assets/Img/broadcaster/announ12.png";
+import Oit from "../Assets/Img/broadcaster/announ1.png";
+import Amoy from "../Assets/Img/broadcaster/announ2.png";
+import Widi from "../Assets/Img/broadcaster/announ3.png";
+import Tama from "../Assets/Img/broadcaster/announ4.png";
+import Vj from "../Assets/Img/broadcaster/announ5.png";
+import Momon from "../Assets/Img/broadcaster/announ6.png";
 import Slider from "react-slick";
 
 
 const Broadcaster = () => {
   const casterData = [
     {
-      image: Kinta,
-      title: "Devana Kinta",
+      image: Vivi,
+      title: "Vivi",
       socialMedia: [
-        { link: "https://www.instagram.com/ozradiobandung/", icon: <BsInstagram /> },
-        { link: "https://twitter.com/ozradiobandung?s=20", icon: <BsTwitter /> },
-        { link: "https://www.tiktok.com/@ozradio?lang=en", icon: <FaTiktok /> },
+        // { link: "https://www.instagram.com/", icon: <BsInstagram /> },
       ],
     },
     {
-      image: Fifi,
-      title: "John Dier",
+      image: Aura,
+      title: "Aura",
       socialMedia: [
-        { link: "https://www.instagram.com/ozradiobandung/", icon: <BsInstagram /> },
-        { link: "https://twitter.com/ozradiobandung?s=20", icon: <BsTwitter /> },
-        { link: "https://www.tiktok.com/@ozradio?lang=en", icon: <FaTiktok /> },
+        // { link: "https://www.instagram.com/", icon: <BsInstagram /> },
       ],
     },
     {
-      image: Kinta,
-      title: "John Fast",
+      image: Diki,
+      title: "Dicky",
       socialMedia: [
-        { link: "https://www.instagram.com/ozradiobandung/", icon: <BsInstagram /> },
-        { link: "https://twitter.com/ozradiobandung?s=20", icon: <BsTwitter /> },
-        { link: "https://www.tiktok.com/@ozradio?lang=en", icon: <FaTiktok /> },
+        { link: "https://www.instagram.com/dickyyshu", icon: <BsInstagram /> },
       ],
     },
     {
-      image: Fifi,
-      title: "John Fast",
+      image: Rosa,
+      title: "Rosa",
       socialMedia: [
-        { link: "https://www.instagram.com/ozradiobandung/", icon: <BsInstagram /> },
-        { link: "https://twitter.com/ozradiobandung?s=20", icon: <BsTwitter /> },
-        { link: "https://www.tiktok.com/@ozradio?lang=en", icon: <FaTiktok /> },
+        { link: "https://www.instagram.com/rosanadila_", icon: <BsInstagram /> },
+      ],
+    },
+    {
+      image: Nabila,
+      title: "Nabila",
+      socialMedia: [
+        { link: "https://www.instagram.com/nabilaoriza", icon: <BsInstagram /> },
+      ],
+    },
+    {
+      image: Dama,
+      title: "Dama",
+      socialMedia: [
+        { link: "https://www.instagram.com/kayradama", icon: <BsInstagram /> },
+      ],
+    },
+    {
+      image: Oit,
+      title: "Oit",
+      socialMedia: [
+        { link: "https://www.instagram.com/ooiit.io", icon: <BsInstagram /> },
+      ],
+    },
+    {
+      image: Amoy,
+      title: "Amoy",
+      socialMedia: [
+        { link: "https://www.instagram.com/fahmiiamoy", icon: <BsInstagram /> },
+      ],
+    },
+    {
+      image: Widi,
+      title: "Widi",
+      socialMedia: [
+        { link: "https://www.instagram.com/widikaluna", icon: <BsInstagram /> },
+      ],
+    },
+    {
+      image: Tama,
+      title: "Tama",
+      socialMedia: [
+        { link: "https://www.instagram.com/de.woeste", icon: <BsInstagram /> },
+      ],
+    },
+    {
+      image: Vj,
+      title: "Vj",
+      socialMedia: [
+        { link: "https://www.instagram.com/jayahadivj", icon: <BsInstagram /> },
+      ],
+    },
+    {
+      image: Momon,
+      title: "Momon",
+      socialMedia: [
+        { link: "https://www.instagram.com/monicariana_", icon: <BsInstagram /> },
       ],
     },
   ];
@@ -90,7 +145,7 @@ const Broadcaster = () => {
 
   return (
       <section>
-    <div className="work-section-wrapper" id="broadcaster" data-aos="fade-up">
+    <div className="" id="broadcaster" data-aos="fade-up" style={{ marginTop:"-100px" }}>
       <div className="work-section-top">
         {/* <div className="broadcast-bannerImage-container">
           <img src={BannerBackground} alt="" />
@@ -109,11 +164,15 @@ const Broadcaster = () => {
                 <img src={data.image} alt="" className="rounded-5 px-1" />
                 <h2>{data.title}</h2>
                 <div className="testimonials-stars-container">
-                  {data.socialMedia.map((social, i) => (
-                    <a key={i} href={social.link} className="text-reset">
-                      {social.icon}
-                    </a>
-                  ))}
+                {data.socialMedia && (
+                      <div className="testimonials-stars-container">
+                        {data.socialMedia.map((social, i) => (
+                          <a key={i} href={social.link} target="_blank" className="text-reset">
+                            {social.icon}
+                          </a>
+                        ))}
+                      </div>
+                    )}
                 </div>
               </div>
             </div>

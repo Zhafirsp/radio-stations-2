@@ -2,13 +2,22 @@
   margin: 290px 0 0 0;
 }
 
+.single-page-news {
+ margin-top: 100px;
+}
+
 .row-news {
   margin-left: 20px;
-  margin-top: 0px;
+  margin-top: 50px !important;
 }
 
 .row-news h2 {
   margin-bottom: 40px;
+}
+
+.news-img-horizontal, news-img-vertical {
+  width: 700px;
+  height: 350px;
 }
 
 .news .box {
@@ -31,109 +40,11 @@
   grid-template-rows: repeat(8, 6.6vh);
   grid-gap: 10px;
 }
-/* .news .box:nth-child(1) {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 9;
-}
-.news .box:nth-child(2) {
-  grid-column-start: 5;
-  grid-column-end: 9;
-  grid-row-start: 1;
-  grid-row-end: 5;
-}
-.news .box:nth-child(3) {
-  grid-column-start: 5;
-  grid-column-end: 7;
-  grid-row-start: 5;
-  grid-row-end: 9;
-}
-.news .box:nth-child(4) {
-  grid-column-start: 7;
-  grid-column-end: 9;
-  grid-row-start: 5;
-  grid-row-end: 9;
-}
 
-
-.news .text h1 {
-  font-weight: 500;
-  margin: 10px 0;
-  font-size: 15px;
-} */
-/* .news .author span {
-  font-size: 14px;
-  margin-left: 20px;
-} */
 .news .text {
   position: absolute;
   bottom: 30px;
 }
-
-/* .news .box:nth-child(1) h1 {
-  font-size: 28px;
-}
-.news .box:nth-child(1) .category {
-  background-color: crimson;
-  border-radius: 6px;
-  padding: 4px;
-}
-.news .box:nth-child(2) .category {
-  background-color: #0b9931;
-  border-radius: 6px;
-  padding: 4px;
-}
-.news .box:nth-child(3) .category {
-  background-color: #800080;
-  border-radius: 6px;
-  padding: 4px;
-}
-.news .box:nth-child(4) .category {
-  background-color: #c78823;
-  border-radius: 6px;
-  padding: 4px;
-} */
-
-/* .news-load .category{
-  background-color: #c78823;
-  border-radius: 3px;
-  padding: 2px;
-} */
-
-/* .news-load {
-  width: 660px;
-  margin-top: 50px;
-} */
-/* .news-load img {
-  width: 400px;
-  height: 200px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-} */
-/* .news-load .text h1 {
-  font-weight: 500;
-  margin: 5px 0;
-  font-size: 25px;
-} */
-
-/* .news-load .author span {
-  font-size: 14px;
-  margin-left: 20px;
-} */
-/* .news-load .text {
-  bottom: 30px;
-  margin-top: -100px;
-  color: white;
-  margin-left: 15px;
-  padding: -20px;
-} */
-
-/* .news-load a {
-  color: #fff;
-} */
 
 
 .news-desc {
@@ -158,9 +69,8 @@
   transform: scale(1.03);
 }
 
-
 .category:hover {
-  filter: brightness(90%);
+  /* filter: brightness(90%); */
   transition: ease 0.5s;
 }
 
@@ -169,7 +79,16 @@
 .category-film,
 .category-entertainment,
 .category-game {
-  background-color: #FCBA33;
+  /* background-color: #FCBA33; */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #FCBA33 !important;
+  border: 2px solid #FCBA33;
+  border-radius: 10px; /* Menambahkan radius untuk membulatkan sudut */
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
   /* transition: background-color 0.3s ease; */
 }
 
@@ -179,128 +98,218 @@
 .category-entertainment:hover,
 .category-game:hover {
   background-color: #FCBA33;
+  color: #fff !important;
   
 }
 
 /* Kategori Cultural dan Local Values */
 .category-cultural,
 .category-local-values {
-  background-color: #7D5333;
-  transition: background-color 0.3s ease;
+  /* background-color: #7D5333; */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #7D5333 !important;
+  border: 2px solid #7D5333;
+  border-radius: 10px; /* Menambahkan radius untuk membulatkan sudut */
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Efek hover */
 .category-cultural:hover,
 .category-local-values:hover {
   background-color: #7D5333;
+  color: #fff !important;
 }
 
 /* Kategori Sustainability dan Environment */
 .category-sustainability,
 .category-environtment {
-  background-color: #218A59;
-  transition: background-color 0.3s ease;
+  /* background-color: #218A59; */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #218A59 !important;
+  border: 2px solid #218A59;
+  border-radius: 10px; /* Menambahkan radius untuk membulatkan sudut */
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Efek hover */
 .category-sustainability:hover,
 .category-environtment:hover {
   background-color: #218A59;
+  color: #fff !important;
 }
 
 /* Kategori News dan Journalism */
 .category-news,
 .category-journalism {
-  background-color: #D62626;
-  transition: background-color 0.3s ease;
+  /* background-color: #D62626; */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #D62626 !important;
+  border: 2px solid #D62626;
+  border-radius: 10px; /* Menambahkan radius untuk membulatkan sudut */
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Efek hover */
 .category-news:hover,
 .category-journalism:hover {
   background-color: #D62626;
+  color: #fff !important;
 }
 
 /* Kategori Fashion dan Lifestyle */
 .category-fashion,
 .category-lifestyle {
-  background-color: #9C57AD;
-  transition: background-color 0.3s ease;
+  /* background-color: #9C57AD; */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #9C57AD !important;
+  border: 2px solid #9C57AD;
+  border-radius: 10px; /* Menambahkan radius untuk membulatkan sudut */
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Efek hover */
 .category-fashion:hover,
 .category-lifestyle:hover {
   background-color: #9C57AD;
+  color: #fff !important;
 }
 
 /* Kategori Educational */
 .category-educational {
-  background-color: #406EBD;
-  transition: background-color 0.3s ease;
+  /* background-color: #406EBD; */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #406EBD !important;
+  border: 2px solid #406EBD;
+  border-radius: 10px; /* Menambahkan radius untuk membulatkan sudut */
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Efek hover */
 .category-educational:hover {
   background-color: #406EBD;
+  color: #fff !important;
 }
 
 /* Kategori Travelling dan Exploration */
 .category-travelling,
 .category-exploration {
-  background-color: #FF8C21;
-  transition: background-color 0.3s ease;
+  /* background-color: #FF8C21; */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #FF8C21 !important;
+  border: 2px solid #FF8C21;
+  border-radius: 10px; /* Menambahkan radius untuk membulatkan sudut */
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Efek hover */
 .category-travelling:hover,
 .category-exploration:hover {
   background-color: #FF8C21;
+  color: #fff !important;
 }
 
 /* Kategori Technology */
 .category-technology {
-  background-color: #3B87D9;
-  transition: background-color 0.3s ease;
+  /* background-color: #3B87D9; */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #3B87D9 !important;
+  border: 2px solid #3B87D9;
+  border-radius: 10px; /* Menambahkan radius untuk membulatkan sudut */
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Efek hover */
 .category-technology:hover {
   background-color: #3B87D9;
+  color: #fff !important;
 }
 
 /* Kategori Food dan Cooking */
 .category-food,
 .category-cooking {
-  background-color: #FF382E;
-  transition: background-color 0.3s ease;
+  /* background-color: #FF382E; */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #FF382E !important;
+  border: 2px solid #FF382E;
+  border-radius: 10px; /* Menambahkan radius untuk membulatkan sudut */
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Efek hover */
 .category-food:hover,
 .category-cooking:hover {
   background-color: #FF382E;
+  color: #fff !important;
 }
 
 /* Kategori Advertising dan Marketing */
 .category-advertising,
 .category-marketing {
-  background-color: #21541F;
-  transition: background-color 0.3s ease;
+  /* background-color: #21541F; */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #21541F !important;
+  border: 2px solid #21541F;
+  border-radius: 10px; /* Menambahkan radius untuk membulatkan sudut */
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Efek hover */
 .category-advertising:hover,
 .category-marketing:hover {
   background-color: #21541F;
+  color: #fff !important;
 }
 
 /* Kategori Sports, Health, dan Wellness */
 .category-sports,
 .category-health,
 .category-wellness {
-  background-color: #61C2B0;
-  transition: background-color 0.3s ease;
+  /* background-color: #61C2B0; */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #61C2B0 !important;
+  border: 2px solid #61C2B0;
+  border-radius: 10px; /* Menambahkan radius untuk membulatkan sudut */
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Efek hover */
@@ -308,6 +317,7 @@
 .category-health:hover,
 .category-wellness:hover {
   background-color: #61C2B0;
+  color: #fff !important;
 }
 
 .text-news {
@@ -321,16 +331,15 @@
 
 .news-title, .news-category, .news-author-link, .news-readmore {
   color: var(--link-color) !important;
-  /* position: relative;
-  display: inline-block;
-  text-decoration: none; */
+  position: relative;
+  text-decoration: none;
 }
 
-.news-author a:after, 
 .news-title:after, 
 .news-category:after, 
-.single-news-category:after,
-.single-news-author:after {    
+.news-author-link:after, 
+/* .news-readmore:after, */
+.single-news-category:after{   
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
@@ -343,22 +352,134 @@
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
-.news-author a:hover:after, 
+
 .news-title:hover:after, 
-.news-category:hover:after,
-.single-news-category:hover:after,
-.single-news-author:hover:after { 
-  width: 100%; 
-  left: 0; 
+.news-category:hover:after, 
+.news-author-link:hover:after, 
+/* .news-readmore:hover:after, */
+.single-news-category:hover:after {
+  width: 100%;
+  left: 0;
+}
+.row-news {
+  margin: 0px 20px;
+}
+
+.row-news .col {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.row-news .news-item .news-image-container {
+  border-radius: 15px;
+  display: block;
+  margin: auto;
+}
+
+.row-news .news-item .text-news {
+  /* margin: 0px 10px; */
+}
+
+.border-exerpt {
+  border: 1px dashed;
+}
+
+.vertical-news {
+  display: grid;
+  gap: 20px;
+  margin-left: 20px;
+  margin-top: 50px;
+}
+
+.vertical-news .col {
+  display: flex;
+  flex-direction: row;
+}
+
+.vertical-news .news-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.vertical-news .news-item .news-image-container {
+  /* flex: 1; */
+  width: 500px;
+  border-radius: 15px;
+}
+
+.vertical-news .news-item .text-news {
+  flex: 1;
+  margin: 0px 50px;
+}
+
+.button-news {
+  padding: 1.3em 3em;
+  /* font-size: 12px; */
+  /* text-transform: uppercase; */
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  /* color: var(--text-color); */
+  /* background-color: var(--link-color); */
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.button-news:hover {
+  background-color: #FCBA33;
+  box-shadow: 0px 6px 20px rgba(252, 186, 51, 0.4);
+  color: #fff;
+  transform: translateY(-4px);
+}
+
+.button-news:active {
+  transform: translateY(-1px);
+}
+
+@media screen and (max-width:1024px){
+
+  .row-news .dashed-border {
+    display: none;
+  }
+  
+  .vertical-news {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin-left: -5px;
+  }
+  
+  .vertical-news .col {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .vertical-news .news-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .vertical-news .news-item .news-image-container {
+    /* flex: 1; */
+    width: auto;
+  }
+  
+  .vertical-news .news-item .text-news {
+    flex: 1;
+    margin: 0px 0px;
+  }
 }
 
 
 @media screen and (max-width:801px){
   
-.row-news {
-  margin-left: 0px;
-  margin-top: 0px;
-}
+  .row-news {
+    margin-left: 0px;
+    margin-top: 0px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -368,36 +489,46 @@
     grid-template-rows: repeat(18, 6vh);
     grid-gap: 10px;
   }
-  .news .box:nth-child(1) {
-    grid-column-start: 1;
-    grid-column-end: 9;
-    grid-row-start: 1;
-    grid-row-end: 5;
+
+  .row-news .col {
+    padding-left: 5px;
+    padding-right: 5px;
   }
-  .news .box:nth-child(2) {
-    grid-column-start: 1;
-    grid-column-end: 9;
-    grid-row-start: 5;
-    grid-row-end: 10;
+
+  .vertical-news .row .col {
+    padding-left: 5px;
+    padding-right: 5px;
   }
-  .news .box:nth-child(3) {
-    grid-column-start: 1;
-    grid-column-end: 9;
-    grid-row-start: 10;
-    grid-row-end: 15;
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
-  .news .box:nth-child(4) {
-    grid-column-start: 1;
-    grid-column-end: 9;
-    grid-row-start: 15;
-    grid-row-end: 20;
+
+  .border-exerpt {
+    border: none;
   }
-  
 } 
 
 @media (max-width: 645px) {
   .ads-topnews {
     margin-top: 50px;
+  }
+
+  .vertical-news .row .col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .row-news .news-item .news-image-container {
+    /* flex: 1; */
+    width: auto;
+  }
+
+  .news-img-horizontal, news-img-vertical {
+    width: 700px;
+    height: 250px;
   }
   
 }

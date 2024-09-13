@@ -117,9 +117,8 @@ const ListRadio = () => {
                   // Jika post.image tersedia, tampilkan gambar dari getImageUrl
                   <img 
                     src={getImageUrl(data.image)}
-                    width={400}
-                    height={400}
-                    className="img-radios d-block mx-auto img-fluid" 
+                    width={300}
+                    className="img-radios d-block mx-auto img-fluid rounded-4" 
                     alt="" 
                     loading="lazy"
                   /> 
@@ -127,14 +126,14 @@ const ListRadio = () => {
                   // Jika post.image tidak tersedia, tampilkan gambar default
                   <img 
                     src={`https://source.unsplash.com/featured/?${data.categoryName}`}
-                    className="d-block mx-auto img-fluid"
-                    width={400}
+                    className="d-block mx-auto img-fluid rounded-4"
+                    width={300}
                     height="auto" 
                     alt="" 
                     loading="lazy" 
                   />
                 )}
-                  <div className="listen-now d-block mx-auto">
+                  <div className="listen-now d-block mx-auto rounded-bottom-4">
                     <Link to={`/radio/${data.id}`} className="listen-nows text-white">LISTEN NOW</Link>
                   </div>
                 </div>

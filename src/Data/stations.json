@@ -6,7 +6,7 @@
     "link": "https://ozradiobali.id/",
     "endpoints": [
       {
-        "endpoint": "https://streaming.ozradiojakarta.com:8443/ozradiobali",
+        "endpoint": "https://streaming.ozradiobali.id:8443/ozradiobali",
         "codec": "AAC",
         "metadataTypes": ["icestats"],
         "statsSources": ["icy", "icestats"]
@@ -34,7 +34,7 @@
     "link": "https://bandung.ozradio.id/",
     "endpoints": [
       {
-        "endpoint": "https://streaming.ozradiojakarta.com:8443/ozradiobandung",
+        "endpoint": "http://45.64.97.211:1031/",
         "codec": "AAC",
         "metadataTypes": ["icestats"],
         "statsSources": ["icy", "icestats"]

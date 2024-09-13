@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import "./news.css";
 // import "../mainContent/Ppost/ppost.css"
 import Card from "./Card";
@@ -7,6 +7,7 @@ import ads_img from '../../Assets/Img/headerb.png'
 import ads_img2 from '../../Assets/Img/headera.png'
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { ThemeContext } from "../../ThemeContext";
 
 const News = ({isHomePage = false}) => {
   const [posts, setPosts] = useState([]);
@@ -15,6 +16,7 @@ const News = ({isHomePage = false}) => {
   const [totalPages, setTotalPages] = useState(1);
   // const [visibleItems, setVisibleItems] = useState(4); // Jumlah item yang akan ditampilkan secara awal
   const newsRef = useRef(null); // Ref untuk elemen newsmenyimpan kategori yang sudah dilihat
+  const { theme } = useContext(ThemeContext); // Use context
 
   useEffect(() => {
     // Panggil API untuk mendapatkan data penulis dan waktu
@@ -71,47 +73,48 @@ useEffect(() => {
 
   return (
     <>
-     <section className="head-news">
-        <div className="container my-5 d-flex justify-content-between">
-          <div className="ads-topnews mx-auto">
-            <img src={ads_img} width={500} alt="" className="img-fluid" />
-          </div>
-        </div>
-      </section>
-
       <section className="single-page-news">
         <div className="">
+            <h1 className="display-5 fw-bolder my-4 home-oz" style={{ color:"#E48A0D", textDecoration:"underline" }}>Special Update</h1>
+            <p className="border-bottom border-5"></p>
+              {/* Display first three news items horizontally */}
           <Row className="row-news">
-            <h1 className="display-5 fw-bolder mb-5">Catch Up On The News</h1>
-            <Col sm={10} className="">
-             {posts && posts.map((post) => (
-              <>
-                  <Card key={post.id} post={post}/>
-                  <br />
-                  </>
-             ))}
+          {posts.slice(0, 3).map((post) => (
+              <Col key={post.id} lg={4} className="rounded">
+                <Card post={post} isHorizontal={true} showExcerpt={true} />
+                <p className="border-exerpt my-3" style={{ color: theme === 'light' ? "#090909" : "#f6f6f6" }}></p>
               </Col>
-              <Col> 
-                <h2 className="display-6 fw-bolder">List Category</h2>
-                 {/* Mapping categories from posts */}
-                 {/* {posts.length > 0 && Array.from(new Set(posts.map((post) => post.category.name))).map((categoryName, index) => (
-                  <Link key={index} to={`/category/${categoryName}`}>
-                    <h4 className="ms-1">{categoryName}</h4>
-                  </Link>
-                ))} */}
+            ))}
+          </Row>
+
+          {/* Display the rest of the news items vertically */}
+          <Row className="vertical-news mt-5">
+            {posts.slice(3).map((post) => (
+                <Col key={post.id}  className="mb-4 rounded">
+                  <Card post={post} showExcerpt={true} />
+                </Col>
+            ))}
+          </Row>
+              {/* <Col> 
+                <h2 className="display-6 fw-bolder mt-5">List Category</h2>
                 {displayedCategories.map((categoryName, index) => (
                     <h4 className="ms-1 "><Link key={index} to={`/category/${categoryName}`} className="news-category">{categoryName}</Link></h4>
                 ))}
 
                 <img src={ads_img2} alt="" className="mt-3"/>
-              </Col>
-          </Row>
+              </Col> */}
           <div className="load-more text-center mt-5">
             {isHomePage ? (
               <Link to="/news">
-                <Button variant="outline-dark" className="rounded-pill py-2">
-                  View All news
-                </Button>
+                <button 
+                variant={theme === 'light' ? "outline-dark" : "outline-light"} 
+                className="button-news py-2"
+                style={{ 
+                  backgroundColor: theme === "light" ? "#090909" : "#f9f9f9", 
+                  color: theme === "light" ? "#fff" : "#000" }}>
+                  View All News
+                  </button>
+
               </Link>
             ) : (
               // totalItems > visibleItems && (

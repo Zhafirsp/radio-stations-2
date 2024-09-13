@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Card from "../../Pages/tvPage/Card";
 import { Col, Row, Button, Container } from 'react-bootstrap';
 import '../../Assets/Css/videos.css';
@@ -8,9 +8,11 @@ import heroImg from '../../Assets/Img/concert.jpg'
 import heroImg1 from '../../Assets/Img/concert1.jpg'
 import heroImg2 from '../../Assets/Img/concert2.jpg'
 import heroImg3 from '../../Assets/Img/concert3.jpg'
+import { ThemeContext } from "../../ThemeContext";
 
 const Videos = () => {
   const [videos, setVideos] = useState([]);
+  const { theme } = useContext(ThemeContext); // Use context
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,10 +47,10 @@ const Videos = () => {
     <Container fluid>
       <section className='videos mt-4'>
         <p className="text-videos fs-1 fw-bold ms-4">Find out more from Videos</p>
-        <Container fluid className="">
-          <Row>
+        {/* <Container fluid className="container-oztv"> */}
+          <Row className="">
             {videos.map((video) => (
-              <Col lg={4} md={12} key={video.id} className="mb-4">
+              <Col key={video.id} className="mb-4" lg={4}>
                 <Card 
                   videoTitle={video.title} 
                   videoBody={video.body} 
@@ -57,12 +59,17 @@ const Videos = () => {
               </Col>
             ))}
           </Row>
-        </Container>
-        <div className="text-center">
+        {/* </Container> */}
+        <div className="text-center my-5">
           <Link to="/oztv">
-            <Button variant="outline-dark" className="btn-videos rounded-pill my-5">
+          <button 
+                variant={theme === 'light' ? "outline-dark" : "outline-light"} 
+                className="button-news py-2"
+                style={{ 
+                  backgroundColor: theme === "light" ? "#090909" : "#f9f9f9", 
+                  color: theme === "light" ? "#fff" : "#000" }}>
               View All Videos
-            </Button>
+            </button>
           </Link>
         </div>
       </section>

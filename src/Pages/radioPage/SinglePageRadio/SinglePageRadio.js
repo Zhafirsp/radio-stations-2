@@ -61,18 +61,18 @@ const SinglePageRadio  = () => {
           </Col>
           <div className="container col-xxl-8 " style={{ height: 991 }}>
             <Row className="justify-content-center g-5 py-5">
-              <Col lg={3} sm={12} className="">
+              <Col lg={3} className="">
                 <img src={getImageUrl(radio.image)} className="d-block mx-auto img-fluid" alt="Radio Show" width="300" height="300" loading="lazy"/>
               </Col>
-              <Col lg={6} sm={12} className="">
-              <p className="lead fw-lighter">{radio.excerpt}</p>
-              <p>subscribe here</p>
+              <Col lg={6} className="">
+              <p className="lead fw-lighter" dangerouslySetInnerHTML={{ __html: radio.excerpt }}></p>
+              {/* <p>subscribe here</p>
               <ul className="d-flex list-unstyled icons-footer">
                   <li><a href="https://www.youtube.com/@OZRADIO" target="_blank" className="text-white" aria-label="youtube"><BsYoutube className="youtube"  style={{ color: theme === 'light' ? "#000" : "#fff" }}/></a></li>
                   <li><a href="https://open.spotify.com/show/24P703f8q8xHnqOn6MCrPO?si=7861e36e3c264fe3&nd=1&dlsi=20c956f09a774cff" target="_blank" className="text-white" aria-label="spotify"><FaSpotify className="spotify"  style={{ color: theme === 'light' ? "#000" : "#fff" }}/></a></li>
-                </ul>
+                </ul> */}
               </Col>
-              <div className="">
+              <div className="col-md-10">
                 <p className="lead fw-lighter" dangerouslySetInnerHTML={{ __html: bodyContent }}></p>
               </div>
             </Row>

@@ -6,7 +6,7 @@ import axios from "axios";
 // Objek untuk menyimpan warna yang dihasilkan untuk setiap kategori
 const categoryColors = {};
 
-const Card = ({ post }) => {
+const Card = ({ post, isHorizontal, showExcerpt }) => {
   const [author, setAuthor] = useState("");
   const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
@@ -81,52 +81,61 @@ const Card = ({ post }) => {
       }
     };
 
+    // Fungsi untuk membatasi jumlah kata dalam teks
+  const limitWords = (text, wordLimit) => {
+    if (!text) return "Loading..."; // Jika teks tidak ada, kembalikan string default
+    const words = text.split(" ");
+    if (words.length > wordLimit) {
+      return words.slice(0, wordLimit).join(" ") + "...";
+    }
+    return text;
+  };
+
+  const displayTitle = isHorizontal ? limitWords(post.title, 8) : post.title; // Batasi judul jika isHorizontal
+
   return (
-    <Container fluid>
-            <Row className="g-5">
-              <Col lg={4} sm={12} className="news-image-container">
-              {post.image ? (
-                  // Jika post.image tersedia, tampilkan gambar dari getImageUrl
-                  <Link to={`/news/${post.id}`}>
-                  <img 
-                    src={getImageUrl(post.image)} 
-                    className="d-block mx-lg-auto img-fluid news-img" 
-                    alt="" 
-                    loading="lazy" 
-                    // style={{ width:"500px" }} 
-                  /> 
-                  </Link>
-                ) : (
-                  // Jika post.image tidak tersedia, tampilkan gambar default
-                  <Link to={`/news/${post.id}`}>
-                  <img 
-                    src={`https://source.unsplash.com/featured/?${post.category.name}`} 
-                    className="d-block mx-lg-auto img-fluid" 
-                    alt="" 
-                    loading="lazy" 
-                    // style={{ width:"500px" }} 
-                  />
-                  </Link>
-                )}
-              </Col>
-            <Col lg={6} md={12} sm={12}>
-              <div className="text-news">
-                  <Link 
-                    className={`category rounded-5 text-white py-1 px-4 category-${post.category.name.toLowerCase()}`}
-                    to={`/category/${post.category.name}`} 
-                  >
-                    <span className="category-text">{post.category.name}</span>
-                  </Link>
-                  <h3 className="mt-3"> <Link to={`/news/${post.id}`} className="news-title">{post.title}</Link></h3>
-                  <h6 className="news-author">by <Link to={`/news/${post.author.name}`} className="news-author-link">{post.author.name}</Link></h6>
-                  <lab>{formattedUpdatedAt}</lab>
-                  <p dangerouslySetInnerHTML={{ __html: post.excerpt }}></p>
-                  <p className="border-top border-3 fw-normal" style={{ borderColor: 'var(--text-color)' }}> <Link to={`/news/${post.id}`} className="news-readmore">READ MORE</Link></p>
-                </div>
-              </Col>
-            </Row>
-          {/* </div> */}
+      <Container fluid>
+       <div className={`news-item ${isHorizontal ? "horizontal" : "vertical"}`}>
+          <div className="news-image-container">
+          {post.image ? (
+              <Link to={`/news/${post.id}`}>
+                <img
+                  src={getImageUrl(post.image)}
+                  className={`img-fluid news-img ${isHorizontal ? "news-img-horizontal mx-auto d-block" : "news-img-vertical"}`}
+                  alt=""
+                  loading="lazy"
+                />
+              </Link>
+            ) : (
+              <Link to={`/news/${post.id}`}>
+                <img
+                  src={`https://source.unsplash.com/featured/?${post.category.name}`} 
+                  className={`img-fluid news-img ${isHorizontal ? "news-img-horizontal  mx-auto d-block" : "news-img-vertical"}`}
+                  alt=""
+                  loading="lazy"
+                />
+              </Link>
+            )}
+          </div>
+          <div className="text-news">
+          <h3 className={`mt-3 ${isHorizontal ? "news-title-horizontal" : "news-title-vertical"}`}>
+            <Link to={`/news/${post.id}`} className="news-title">{displayTitle}</Link>
+            </h3>
+            {showExcerpt && (
+            <p className={`mt-3 ${isHorizontal ? "news-excerpt-horizontal" : "news-excerpt-vertical"}`} dangerouslySetInnerHTML={{ __html: post.excerpt }}></p>
+          )}
+          {!isHorizontal && (
+            <Link
+              className={`category py-1 px-4 category-${post.category.name.toLowerCase()}`}
+              to={`/category/${post.category.name}`} 
+            >
+              <span className="category-text">{post.category.name}</span>
+            </Link>
+          )}
+          </div>
+      </div>
     </Container>
+            
   )
 }
 

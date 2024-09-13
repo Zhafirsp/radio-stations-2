@@ -80,27 +80,45 @@ const Station = ({ station, selectedStation, changeStation }) => {
     const fetchData = async () => {
       try {
         if (selectedStation) {
-          const response = await axios.get(`https://streaming.ozradiojakarta.com:8443/status-json.xsl?mount=${selectedStation.mount}`);
-          const data = response.data;
-          if (data && data.icestats && data.icestats.source) {
-            const { title, listenurl, server_url } = data.icestats.source;
+          // Define URLs, skip mount for vinhostmedia link
+        const urls = [
+          selectedStation.mount
+            ? `https://streaming.ozradiojakarta.com:8443/status-json.xsl?mount=${selectedStation.mount}`
+            : null,
+          selectedStation.mount
+            ? `https://streaming.ozradiobali.id:8443/status-json.xsl?mount=${selectedStation.mount}`
+            : null,
+          `http://45.64.97.211:1031/`, // No mount point needed for this one
+        ].filter(Boolean); // Filter out null values if no mount is present
+  
+          let response;
+          // Looping melalui array URL untuk mencoba tiap link
+          for (let i = 0; i < urls.length; i++) {
+            try {
+              response = await axios.get(urls[i]);
+              if (response.data && response.data.icestats && response.data.icestats.source) {
+                break; // Keluar dari loop jika respons valid ditemukan
+              }
+            } catch (error) {
+              console.warn(`Gagal mengambil data dari ${urls[i]}, mencoba link berikutnya...`);
+            }
+          }
+  
+          if (response && response.data && response.data.icestats && response.data.icestats.source) {
+            const { title, listenurl, server_url } = response.data.icestats.source;
             setCurrentTitle(title || '');
             setCurrentRadio(server_url || '');
             if (listenurl) {
-              // Mengganti protokol HTTP menjadi HTTPS
               const secureListenurl = listenurl.replace(/^http:/, 'https:');
               setStreamUrl(secureListenurl || '');
             } else {
-              console.error('Listen URL is not defined in the data');
+              console.error('Listen URL tidak tersedia dalam data');
             }
             console.log('Memutar musik dari:', listenurl);
           } else {
-            console.error('Invalid or empty data received from API');
+            console.error('Data tidak valid atau kosong dari API');
           }
-        } 
-        // else {
-        //   console.error('Pilih stasiun terlebih dahulu');
-        // }
+        }
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -108,10 +126,8 @@ const Station = ({ station, selectedStation, changeStation }) => {
   
     fetchData();
   
-    // Membuat interval untuk mengambil data setiap 10 detik
     const interval = setInterval(fetchData, 10000);
   
-    // Membersihkan interval saat komponen tidak lagi digunakan
     return () => clearInterval(interval);
   }, [selectedStation]);
   

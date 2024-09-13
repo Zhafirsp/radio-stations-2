@@ -60,8 +60,8 @@ const Contact = () => {
         <div className="contact-oz">
         <p className="mt-5 fw-bold fs-3">Advertise With Us</p>
           <div className="custom-border"></div>
-          <p className="primary-text">phone: <a href = "https://wa.me/6281210104908 " target="_blanks">+6281210104908</a><br/>
-            email: <a href = "mailto: jelita@ozradiojakarta.com" target="_blanks">jelita@ozradiojakarta.com</a>
+          <p className="primary-text">phone: <a href = "https://wa.me/081214007228 " target="_blanks">+62 812 140 072 28</a><br/>
+            email: <a href = "mailto: dasagandjar@gmail.com" target="_blanks">dasagandjar@gmail.com</a>
           </p>
           {/* <svg className="getwaves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#FE9E0D" fill-opacity="1" d="M0,160L80,176C160,192,320,224,480,224C640,224,800,192,960,192C1120,192,1280,224,1360,240L1440,256L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg> */}
           </div>

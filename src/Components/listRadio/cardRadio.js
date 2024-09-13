@@ -43,7 +43,7 @@ const CardRadio = ({ radio }) => {
   };
 
   return (
-    <div className="card">
+    <div className="card ">
       <Link to={`/radio/${radio.id}`} className="card-link">
         <div className="card-body">
           <h5 className="card-title">{radio.name}</h5>

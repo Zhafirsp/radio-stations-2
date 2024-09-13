@@ -22,10 +22,10 @@
 }
 
 @media (max-width: 645px) {
-  .videos iframe {
+  /* .videos iframe {
     width: 400px;
     height: auto;
-  }
+  } */
 
   /* .btn-videos {
     left: 39%;

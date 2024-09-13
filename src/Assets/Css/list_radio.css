@@ -1,5 +1,4 @@
 .cardlist-radio {
-  /* margin-right: 1000px; */
   margin-bottom: 20px;
   margin-left: 20px;
   margin-right: 20px;
@@ -11,6 +10,7 @@
 
 .category-radio {
   margin-bottom: 50px;
+  text-decoration: underline;
 }
 
 .category-radio a{
@@ -19,10 +19,7 @@
 
 .category-radio a:hover {
   color: #F49C27 !important;
-}
-
-.list-category-radio {
-  text-decoration: underline !important;
+  text-decoration: underline #F49C27;
 }
 
 .row-cardlistradio {
@@ -51,11 +48,6 @@
   overflow: hidden;
 }
 
-.img-radios {
-  width: 400px;
-  height: 400px;
-}
-
 .text-radio a:after {    
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
@@ -80,8 +72,8 @@
   left: 0;
   right: 0;
   padding: 14px 24px;
-  background-color: rgba(0, 0, 0, 0.7);
-  width: 400px;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 300px;
 }
 
 .listen-nows:hover {

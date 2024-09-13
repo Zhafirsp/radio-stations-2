@@ -41,7 +41,7 @@
   margin-right: auto;
 }
 
-.eventpage-title-list a, .eventpage-date-list, .special-event{
+.special-event{
 color: var(--text-color) !important;
 }
 

@@ -9,13 +9,13 @@ const Event = () => {
   const { theme } = useContext(ThemeContext); // Use context
 
   return (
-    <section style={{ backgroundColor: theme === 'light' ? "#f6f6f6" : "#090909" }} className="event mt-5" data-aos="fade-down" >
+    <section className="event" data-aos="fade-down" >
     <Container>
       <div className="py-5">
           <div className="mb-3">
-            <h1 className="display-5 fw-bold text-center">
+            {/* <h1 className="display-5 fw-bold text-center pb-5">
               Upcoming <span style={{ color:"#F49C27" }}>OZ Radio </span> Events + In-Studio Sessions
-            </h1>
+            </h1> */}
           </div>
       <CardEvent/>
           <div className="mt-3 text-center">

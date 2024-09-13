@@ -47,67 +47,79 @@ const NavTop = () => {
   const { theme, toggleTheme, ref } = useTheme();
 
   useEffect(() => {
-      const fetchData = async () => {
-        try {
-          if (selectedStation) {
-          const response = await axios.get(`https://streaming.ozradiojakarta.com:8443/status-json.xsl?mount=${selectedStation.mount}`, {
-            headers: {
-              "Content-Type": "application/json",
+    const fetchData = async () => {
+      try {
+        if (selectedStation) {
+           // Define URLs, skip mount for vinhostmedia link
+          const urls = [
+          selectedStation.mount
+            ? `https://streaming.ozradiojakarta.com:8443/status-json.xsl?mount=${selectedStation.mount}`
+            : null,
+          selectedStation.mount
+            ? `https://streaming.ozradiobali.id:8443/status-json.xsl?mount=${selectedStation.mount}`
+            : null,
+          `http://45.64.97.211:1031/`, // No mount point needed for this one
+        ].filter(Boolean); // Filter out null values if no mount is present
+  
+          let response;
+          // Looping melalui array URL untuk mencoba tiap link
+          for (let i = 0; i < urls.length; i++) {
+            try {
+              response = await axios.get(urls[i]);
+              if (response.data && response.data.icestats && response.data.icestats.source) {
+                break; // Keluar dari loop jika respons valid ditemukan
+              }
+            } catch (error) {
+              console.warn(`Gagal mengambil data dari ${urls[i]}, mencoba link berikutnya...`);
             }
-          });
-          const data = response.data;
-          if (data && data.icestats && data.icestats.source) {
-            const { title, listenurl, server_url } = data.icestats.source;
+          }
+  
+          if (response && response.data && response.data.icestats && response.data.icestats.source) {
+            const { title, listenurl } = response.data.icestats.source;
             setCurrentTitle(title || '');
-            // setCurrentRadio(server_url || '');
+            
             if (listenurl) {
-              // Mengganti protokol HTTP menjadi HTTPS
               const secureListenurl = listenurl.replace(/^http:/, 'https:');
               setStreamUrl(secureListenurl || '');
             } else {
               console.error('Listen URL is not defined in the data');
             }
-            console.log('Memutar musik dari:', listenurl);
-             // Panggil pencarian album artwork hanya jika ada judul lagu yang baru
-         if (title) {
-            const searchResponse = await axios.get(`https://ozbackend.santuy.info/api/song/search?q=${encodeURIComponent(title)}`, {
-            // const searchResponse = await axios.get(`http://localhost:4001/api/song/search?q=${encodeURIComponent(title)}`, {
-              headers: {
-                "Content-Type": "application/json",
+  
+            // Mencari album artwork jika judul lagu ditemukan
+            if (title) {
+              const searchResponse = await axios.get(`https://ozbackend.santuy.info/api/song/search?q=${encodeURIComponent(title)}`, {
+                headers: {
+                  "Content-Type": "application/json",
+                }
+              });
+              const searchData = searchResponse.data;
+              if (searchData && Array.isArray(searchData) && searchData.length > 0 && searchData[0].thumbnails && searchData[0].thumbnails.length > 0) {
+                const thumbnailURL = searchData[0].thumbnails[1].url;
+                setAlbumArtworkURL(thumbnailURL);
+              } else {
+                setAlbumArtworkURL(default_img);
               }
-            });
-            const searchData = searchResponse.data;
-
-            // Ambil URL gambar album dari respons data
-            if (searchData && Array.isArray(searchData) && searchData.length > 0 && searchData[0].thumbnails && searchData[0].thumbnails.length > 0) {
-              // Get the URL of the first thumbnail
-              const thumbnailURL = searchData[0].thumbnails[1].url;
-              // Manipulasi URL untuk mendapatkan gambar dengan ukuran w300-h300
-              // const thumbnailURL = thumbnailURLImage.replace(/=w\d+-h\d+-/, "=w1000-h1000-");
-              setAlbumArtworkURL(thumbnailURL);
-            } else {
-              console.error('Thumbnail not found in search data');
-              setAlbumArtworkURL(default_img);
             }
+          } else {
+            console.error('Invalid or empty data received from all APIs');
+            setAlbumArtworkURL(default_img);
           }
-        } else {
-          console.error('Invalid or empty data received from API');
         }
-      } 
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      setAlbumArtworkURL(default_img);
-    }
-  };
-
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setAlbumArtworkURL(default_img);
+      }
+    };
+  
     fetchData();
-
+  
     // Membuat interval untuk mengambil data setiap 10 detik
     const interval = setInterval(fetchData, 10000);
-
+  
     // Membersihkan interval saat komponen tidak lagi digunakan
     return () => clearInterval(interval);
   }, [selectedStation]);
+  
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -453,7 +465,7 @@ const [showSearch, setShowSearch] = useState(false);
                           <Offcanvas.Header closeButton closeVariant='white'>
                             <Offcanvas.Title className='offcanvas-title'>Menu</Offcanvas.Title>
                             <div onClick={handleThemeToggle} className="theme-toggle">
-                            {theme === 'light' ? <MdDarkMode size={24} /> : <MdLightMode size={24} />}
+                            {theme === 'light' ? <MdDarkMode size={24} className='icon--moon' /> : <MdLightMode size={24} className='icon--sun' />}
                             </div>
                           </Offcanvas.Header>
                           <Offcanvas.Body className='fs-5 offcanvas-body'>
@@ -476,7 +488,7 @@ const [showSearch, setShowSearch] = useState(false);
                               <Nav.Link><Link to="/playlist" className='text-white' onClick={handleClose}>Playlist</Link></Nav.Link>
                             <hr className='devider-offcanvas'/>
                               <Nav.Link><Link to="#" className='text-white' onClick={handleClose}>Sustainability</Link></Nav.Link>
-                              <Nav.Link><Link to="/contact" className='text-white' onClick={handleClose}>Advertising</Link></Nav.Link>
+                              <Nav.Link><Link to="/ads" className='text-white' onClick={handleClose}>Advertising</Link></Nav.Link>
                               <Nav.Link><Link to="#" className='text-white' onClick={handleClose}>Community</Link></Nav.Link>
                               <Nav.Link><Link to="/contact" className='text-white' onClick={handleClose}>Contact Us</Link></Nav.Link>
                               <Nav.Link><Link to="/about" className='text-white' onClick={handleClose}>About</Link></Nav.Link>

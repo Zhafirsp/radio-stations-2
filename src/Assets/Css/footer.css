@@ -8,9 +8,7 @@
   /* background-size: 25%; */
   background-position: right bottom 10%;
   background-repeat: no-repeat;
-  /* max-height: fit-content; */ 
-  position: relative;
-  bottom: 0;
+  /* max-height: fit-content; */
 }
 
 .span-footer {
