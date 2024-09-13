@@ -20,10 +20,12 @@ import Comingsoon from "./Pages/Comingsoon";
 import NotFoundPage from "./Pages/NotFoundPage";
 import Unauthorized from "./Components/Unauthorized";
 import Category from "./Pages/categoryPage/categoryPage";
+// import Author from "./Pages/newsPage/authorPage/authorPage";
 import ListRadio from "./Components/listRadio/listRadio";
+import SinglePageRadio from "./Pages/radioPage/SinglePageRadio/SinglePageRadio";
 import OZTV from "./Pages/tvPage/OztvPage";
 import LoadingScreen from "./Components/LoadingScreen/LoadingScreen";
-import SinglePageRadio from "./Pages/radioPage/SinglePageRadio/SinglePageRadio";
+import Advertising from "./Pages/adsPage/advertising";
 
 function ScrollTop() {
   const location = useLocation();
@@ -143,8 +145,10 @@ function App() {
           <Route path="/playlist" element={<LayoutWithFooter><PlaylistPage /></LayoutWithFooter>} />
           <Route path="/pp_terms" element={<LayoutWithFooter><PP_Terms /></LayoutWithFooter>} />
           <Route path="/category/:categoryName" element={<LayoutWithFooter><Category /></LayoutWithFooter>} />
+          {/* <Route path="/Author/:authorName" element={<LayoutWithFooter><Author /></LayoutWithFooter>} /> */}
           <Route path="/radio/category/:category" element={<LayoutWithFooter><ListRadio /></LayoutWithFooter>} />
           <Route path="/radio/:id" element={<LayoutWithFooter><SinglePageRadio /></LayoutWithFooter>} />
+          <Route path="/ads" element={<LayoutWithFooter><Advertising /></LayoutWithFooter>} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="unauthorized" element={<Unauthorized />} />
           <Route path="/comingsoon" element={<LayoutWithoutFooter><Comingsoon /></LayoutWithoutFooter>} />

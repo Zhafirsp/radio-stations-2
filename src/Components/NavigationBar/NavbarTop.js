@@ -453,7 +453,7 @@ const [showSearch, setShowSearch] = useState(false);
                           <Offcanvas.Header closeButton closeVariant='white'>
                             <Offcanvas.Title className='offcanvas-title'>Menu</Offcanvas.Title>
                             <div onClick={handleThemeToggle} className="theme-toggle">
-                            {theme === 'light' ? <MdDarkMode size={24} /> : <MdLightMode size={24} />}
+                            {theme === 'light' ? <MdDarkMode size={24} className='icon--moon' /> : <MdLightMode size={24} className='icon--sun' />}
                             </div>
                           </Offcanvas.Header>
                           <Offcanvas.Body className='fs-5 offcanvas-body'>
@@ -476,7 +476,7 @@ const [showSearch, setShowSearch] = useState(false);
                               <Nav.Link><Link to="/playlist" className='text-white' onClick={handleClose}>Playlist</Link></Nav.Link>
                             <hr className='devider-offcanvas'/>
                               <Nav.Link><Link to="#" className='text-white' onClick={handleClose}>Sustainability</Link></Nav.Link>
-                              <Nav.Link><Link to="/contact" className='text-white' onClick={handleClose}>Advertising</Link></Nav.Link>
+                              <Nav.Link><Link to="/ads" className='text-white' onClick={handleClose}>Advertising</Link></Nav.Link>
                               <Nav.Link><Link to="#" className='text-white' onClick={handleClose}>Community</Link></Nav.Link>
                               <Nav.Link><Link to="/contact" className='text-white' onClick={handleClose}>Contact Us</Link></Nav.Link>
                               <Nav.Link><Link to="/about" className='text-white' onClick={handleClose}>About</Link></Nav.Link>

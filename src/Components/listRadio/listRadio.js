@@ -118,7 +118,6 @@ const ListRadio = () => {
                   <img 
                     src={getImageUrl(data.image)}
                     width={400}
-                    height={400}
                     className="img-radios d-block mx-auto img-fluid" 
                     alt="" 
                     loading="lazy"
