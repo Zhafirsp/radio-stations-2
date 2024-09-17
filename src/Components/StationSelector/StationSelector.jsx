@@ -80,16 +80,16 @@ const Station = ({ station, selectedStation, changeStation }) => {
     const fetchData = async () => {
       try {
         if (selectedStation) {
-          // Define URLs, skip mount for vinhostmedia link
+          // Array berisi link URL, tanpa perlu menambah mount jika tidak tersedia
         const urls = [
           selectedStation.mount
             ? `https://streaming.ozradiojakarta.com:8443/status-json.xsl?mount=${selectedStation.mount}`
-            : null,
+            : 'https://streaming.ozradiojakarta.com:8443/status-json.xsl',
           selectedStation.mount
             ? `https://streaming.ozradiobali.id:8443/status-json.xsl?mount=${selectedStation.mount}`
-            : null,
-          `http://45.64.97.211:1031/`, // No mount point needed for this one
-        ].filter(Boolean); // Filter out null values if no mount is present
+            : 'https://streaming.ozradiobali.id:8443/status-json.xsl',
+          'http://45.64.97.211:1031/'
+        ];
   
           let response;
           // Looping melalui array URL untuk mencoba tiap link

@@ -32,18 +32,18 @@ const Ads = () => {
           setAd(closestAd);
 
           // Mengatur warna latar belakang untuk iklan yang dipilih
-          const colorThief = new ColorThief();
-          const img = new Image();
-          img.crossOrigin = 'Anonymous';
-          img.src = getImageUrl(closestAd.image);
+          // const colorThief = new ColorThief();
+          // const img = new Image();
+          // img.crossOrigin = 'Anonymous';
+          // img.src = getImageUrl(closestAd.image);
 
-          img.onload = () => {
-            const dominantColor = colorThief.getColor(img);
-            const adElement = document.getElementById(`ad-${closestAd.id}`);
-            if (adElement) {
-              adElement.style.backgroundColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
-            }
-          };
+          // img.onload = () => {
+          //   const dominantColor = colorThief.getColor(img);
+          //   const adElement = document.getElementById(`ad-${closestAd.id}`);
+          //   if (adElement) {
+          //     adElement.style.backgroundColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
+          //   }
+          // };
         }
       } catch (error) {
         console.error("Error fetching advertisement data:", error);
