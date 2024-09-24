@@ -20,6 +20,7 @@ const Category = () => {
     // Panggil API untuk mendapatkan data penulis dan waktu
     const fetchData = async () => {
       try {
+        const encodedCategory = encodeURIComponent(categoryName); // Encode category name
         const response = await axios.get(
           `https://adminoz.santuy.info/api/posts?page=${currentPage}&category=${categoryName.toLowerCase()}`
         ); // Mengubah kategori menjadi huruf kecil sebelum menambahkannya ke URL

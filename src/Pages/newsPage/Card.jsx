@@ -127,7 +127,7 @@ const Card = ({ post, isHorizontal, showExcerpt }) => {
           {!isHorizontal && (
             <Link
               className={`category py-1 px-4 category-${post.category.name.toLowerCase()}`}
-              to={`/category/${post.category.name}`} 
+              to={`/category/${post.category.name.replace(/\s+/g, '').toLowerCase()}`}
             >
               <span className="category-text">{post.category.name}</span>
             </Link>

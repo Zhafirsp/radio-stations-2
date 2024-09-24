@@ -50,27 +50,26 @@ const NavTop = () => {
     const fetchData = async () => {
       try {
         if (selectedStation) {
-           // Define URLs, skip mount for vinhostmedia link
-          const urls = [
-          selectedStation.mount
-            ? `https://streaming.ozradiojakarta.com:8443/status-json.xsl?mount=${selectedStation.mount}`
-            : null,
-          selectedStation.mount
-            ? `https://streaming.ozradiobali.id:8443/status-json.xsl?mount=${selectedStation.mount}`
-            : null,
-          `http://45.64.97.211:1031/`, // No mount point needed for this one
-        ].filter(Boolean); // Filter out null values if no mount is present
-  
           let response;
-          // Looping melalui array URL untuk mencoba tiap link
-          for (let i = 0; i < urls.length; i++) {
+          const urls = [
+            `https://streaming.ozradiojakarta.com:8443/status-json.xsl?mount=${selectedStation.mount}`,
+            `https://streaming.ozradiobali.id:8443/status-json.xsl?mount=${selectedStation.mount}`,
+            // `https://streaming.ozradiobandung.com:8443/status-json.xsl?mount=${selectedStation.mount}`,
+            `https://s3.vinhostmedia.com:10987/`
+          ];
+  
+          for (let url of urls) {
             try {
-              response = await axios.get(urls[i]);
+              response = await axios.get(url, {
+                headers: {
+                  "Content-Type": "application/json",
+                }
+              });
               if (response.data && response.data.icestats && response.data.icestats.source) {
-                break; // Keluar dari loop jika respons valid ditemukan
+                break; // Berhenti pada URL pertama yang berhasil
               }
             } catch (error) {
-              console.warn(`Gagal mengambil data dari ${urls[i]}, mencoba link berikutnya...`);
+              console.warn(`Failed to fetch from ${url}:`, error);
             }
           }
   

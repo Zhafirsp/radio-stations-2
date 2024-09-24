@@ -80,17 +80,14 @@ const Station = ({ station, selectedStation, changeStation }) => {
     const fetchData = async () => {
       try {
         if (selectedStation) {
-          // Array berisi link URL, tanpa perlu menambah mount jika tidak tersedia
-        const urls = [
-          selectedStation.mount
-            ? `https://streaming.ozradiojakarta.com:8443/status-json.xsl?mount=${selectedStation.mount}`
-            : 'https://streaming.ozradiojakarta.com:8443/status-json.xsl',
-          selectedStation.mount
-            ? `https://streaming.ozradiobali.id:8443/status-json.xsl?mount=${selectedStation.mount}`
-            : 'https://streaming.ozradiobali.id:8443/status-json.xsl',
-          'http://45.64.97.211:1031/'
-        ];
-  
+          // Array URL tanpa menggunakan mount
+          const urls = [
+            `https://streaming.ozradiojakarta.com:8443/status-json.xsl?mount=${selectedStation.mount}`,
+            `https://streaming.ozradiobali.id:8443/status-json.xsl?mount=${selectedStation.mount}`,
+            // `https://streaming.ozradiobandung.com:8443/status-json.xsl?mount=${selectedStation.mount}`,
+            'https://s3.vinhostmedia.com:10987/'
+          ];
+
           let response;
           // Looping melalui array URL untuk mencoba tiap link
           for (let i = 0; i < urls.length; i++) {
@@ -103,7 +100,7 @@ const Station = ({ station, selectedStation, changeStation }) => {
               console.warn(`Gagal mengambil data dari ${urls[i]}, mencoba link berikutnya...`);
             }
           }
-  
+
           if (response && response.data && response.data.icestats && response.data.icestats.source) {
             const { title, listenurl, server_url } = response.data.icestats.source;
             setCurrentTitle(title || '');
@@ -123,14 +120,14 @@ const Station = ({ station, selectedStation, changeStation }) => {
         console.error('Error fetching data:', error);
       }
     };
-  
+
     fetchData();
-  
+
     const interval = setInterval(fetchData, 10000);
-  
+
     return () => clearInterval(interval);
   }, [selectedStation]);
-  
+
 
   let stationLabelStyle, codecButtonNotSelectedStyle;
 
@@ -152,8 +149,6 @@ const Station = ({ station, selectedStation, changeStation }) => {
         htmlFor={station.name + station.endpoints[0].codec}
       >
         <div className={styles.stationName}>{station.name}</div>
-        {/* <div className={styles.currentTitle}>{currentTitle}</div> */}
-        {/* <audio controls src={streamUrl} /> */}
         <CodecButtonGroup
           station={station}
           selectedStation={selectedStation}
@@ -172,16 +167,17 @@ const Station = ({ station, selectedStation, changeStation }) => {
 const StationSelector = (props) => {
 
   if (!props.stations || props.stations.length === 0) {
-  return null; // Atau tindakan lain sesuai kebutuhan Anda
-}
+    return null; // Atau tindakan lain sesuai kebutuhan Anda
+  }
+  
   return props.stations.map((station, idx) => (
     <>
-    <Station
-      key={idx}
-      station={station}
-      selectedStation={props.selectedStation}
-      changeStation={props.changeStation}
-    />
+      <Station
+        key={idx}
+        station={station}
+        selectedStation={props.selectedStation}
+        changeStation={props.changeStation}
+      />
     </>
   ));
 };

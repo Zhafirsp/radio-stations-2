@@ -34,7 +34,7 @@
     "link": "https://bandung.ozradio.id/",
     "endpoints": [
       {
-        "endpoint": "http://45.64.97.211:1031/",
+        "endpoint": "https://s3.vinhostmedia.com:10987/",
         "codec": "AAC",
         "metadataTypes": ["icestats"],
         "statsSources": ["icy", "icestats"]

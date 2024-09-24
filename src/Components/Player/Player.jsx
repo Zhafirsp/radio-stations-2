@@ -3,6 +3,8 @@ import styles from "./Player.module.css";
 import { BsPlayCircle, BsPauseCircle } from "react-icons/bs";
 import axios from "axios";
 
+const NOW_PLAYING = <span className='now-playing-text'>Now Playing</span>;
+const VISIT_STATION = <span className='text-title'>Visit OZ </span>;
 
 const CodecInfo = React.memo(({ codecInfo }) => {
   const canvas = useRef();
@@ -49,6 +51,22 @@ const CodecInfo = React.memo(({ codecInfo }) => {
   return <canvas ref={canvas} title={title} className={styles.codecInfo} />;
 });
 
+const Metadata = React.memo(({ metadata }) => (
+  <div>
+    {metadata && typeof metadata === "object" && metadata.StreamTitle ? (
+      <>{metadata.StreamTitle}</>
+    ) : (
+      <>
+        {metadata &&
+          (metadata.ARTIST
+            ? `${metadata.ARTIST} - ${metadata.TITLE}`
+            : metadata.TITLE) &&
+          (metadata.ARTIST || metadata.TITLE)}
+      </>
+    )}
+  </div>
+));
+
 const PlayerButton = React.memo(({ station, toggle, playing}) => (
   <div className="play-control">
     <a 
@@ -67,10 +85,33 @@ const PlayerButton = React.memo(({ station, toggle, playing}) => (
   </div>
 ));
 
-const Player = ({ station, playing, toggle }) => {
+const VisitStationLink = React.memo(
+  ({ station }) =>
+    station?.link && (
+      <div>
+        {NOW_PLAYING}
+        <br/>
+        {VISIT_STATION}
+        <a
+          className='text-white visit-oz-station'
+          href={station.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {station.name}
+        </a>
+      </div>
+    ),
+);
+
+const Player = ({ station, playing, metadata, toggle }) => {
   
   const audioRef = useRef(null);
   
+  const title = metadata?.StreamTitle || metadata?.TITLE;
+  document.title = title
+    ? `${title}`
+    : `ICECAST_METADATA_JS_DEMO`;
 
   return (
     <>
@@ -81,6 +122,7 @@ const Player = ({ station, playing, toggle }) => {
         playing={playing} 
         toggle={toggle} 
         />
+
       </div>
     </>
   );
