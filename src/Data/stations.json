@@ -1,8 +1,8 @@
 [
-  { 
-    "name": "Bali", 
+  {
+    "name": "Bali",
     "mount": "/ozradiobali",
-    "frequency": "101.2 FM", 
+    "frequency": "101.2 FM",
     "link": "https://ozradiobali.id/",
     "endpoints": [
       {
@@ -13,10 +13,10 @@
       }
     ]
   },
-  { 
-    "name": "Jakarta", 
+  {
+    "name": "Jakarta",
     "mount": "/ozjakarta",
-    "frequency": "90.8 FM", 
+    "frequency": "90.8 FM",
     "link": "https://ozradiojakarta.com/",
     "endpoints": [
       {
@@ -27,11 +27,11 @@
       }
     ]
   },
-  { 
-    "name": "Bandung", 
+  {
+    "name": "Bandung",
     "mount": "/ozradiobandung",
-    "frequency": "103.1 FM", 
-    "link": "https://bandung.ozradio.id/",
+    "frequency": "103.1 FM",
+    "link": "https://ozradio.id/",
     "endpoints": [
       {
         "endpoint": "https://s3.vinhostmedia.com:10987/",
@@ -41,4 +41,4 @@
       }
     ]
   }
-  ]
+]

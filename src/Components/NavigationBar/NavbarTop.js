@@ -152,27 +152,27 @@ const [showSearch, setShowSearch] = useState(false);
     [castSession],
   );
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "//www.gstatic.com/cv/js/sender/v1/cast_sender.js";
-    document.body.appendChild(script);
+  // useEffect(() => {
+  //   const script = document.createElement("script");
+  //   script.src = "//www.gstatic.com/cv/js/sender/v1/cast_sender.js";
+  //   document.body.appendChild(script);
 
-    window.__onGCastApiAvailable = (loaded) => {
-      if (loaded) {
-        const sessionRequest = new window.chrome.cast.SessionRequest(castAPIId);
+  //   window.__onGCastApiAvailable = (loaded) => {
+  //     if (loaded) {
+  //       const sessionRequest = new window.chrome.cast.SessionRequest(castAPIId);
 
-        const apiConfig = new window.chrome.cast.ApiConfig(
-          sessionRequest,
-          (session) => {
-            setCastSession(session);
-          },
-          () => {},
-        );
+  //       const apiConfig = new window.chrome.cast.ApiConfig(
+  //         sessionRequest,
+  //         (session) => {
+  //           setCastSession(session);
+  //         },
+  //         () => {},
+  //       );
 
-        window.chrome.cast.initialize(apiConfig);
-      }
-    };
-  }, []);
+  //       window.chrome.cast.initialize(apiConfig);
+  //     }
+  //   };
+  // }, []);
   
   const changeStation = useCallback(
     async (newStation) => {

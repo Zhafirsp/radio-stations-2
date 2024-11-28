@@ -3,8 +3,8 @@ import styles from "./Player.module.css";
 import { BsPlayCircle, BsPauseCircle } from "react-icons/bs";
 import axios from "axios";
 
-const NOW_PLAYING = <span className='now-playing-text'>Now Playing</span>;
-const VISIT_STATION = <span className='text-title'>Visit OZ </span>;
+const NOW_PLAYING = <span className="now-playing-text">Now Playing</span>;
+const VISIT_STATION = <span className="text-title">Visit OZ </span>;
 
 const CodecInfo = React.memo(({ codecInfo }) => {
   const canvas = useRef();
@@ -21,7 +21,7 @@ const CodecInfo = React.memo(({ codecInfo }) => {
         context.fillText(
           `${codecInfo.bitrate} kb/s ${codecInfo.sampleRate} Hz`,
           canvas.current.width,
-          canvas.current.height,
+          canvas.current.height
         );
       }
     }
@@ -45,7 +45,7 @@ const CodecInfo = React.memo(({ codecInfo }) => {
     codecInfo &&
     Object.entries(codecInfo).reduce(
       (acc, [k, v]) => acc + `${k}: ${v}\x0A`,
-      "",
+      ""
     );
 
   return <canvas ref={canvas} title={title} className={styles.codecInfo} />;
@@ -67,20 +67,16 @@ const Metadata = React.memo(({ metadata }) => (
   </div>
 ));
 
-const PlayerButton = React.memo(({ station, toggle, playing}) => (
+const PlayerButton = React.memo(({ station, toggle, playing }) => (
   <div className="play-control">
-    <a 
+    <a
       disabled={!station}
-      className="play-button text-warning" 
-      id="RadioPlayer" 
-      onClick={toggle} 
+      className="play-button text-warning"
+      id="RadioPlayer"
+      onClick={toggle}
       allow="autoplay"
     >
-      {playing 
-      ? 
-      <BsPauseCircle/>
-      : 
-      <BsPlayCircle/>}
+      {playing ? <BsPauseCircle /> : <BsPlayCircle />}
     </a>
   </div>
 ));
@@ -90,10 +86,10 @@ const VisitStationLink = React.memo(
     station?.link && (
       <div>
         {NOW_PLAYING}
-        <br/>
+        <br />
         {VISIT_STATION}
         <a
-          className='text-white visit-oz-station'
+          className="text-white visit-oz-station"
           href={station.link}
           target="_blank"
           rel="noopener noreferrer"
@@ -101,28 +97,17 @@ const VisitStationLink = React.memo(
           {station.name}
         </a>
       </div>
-    ),
+    )
 );
 
 const Player = ({ station, playing, metadata, toggle }) => {
-  
   const audioRef = useRef(null);
-  
-  const title = metadata?.StreamTitle || metadata?.TITLE;
-  document.title = title
-    ? `${title}`
-    : `ICECAST_METADATA_JS_DEMO`;
 
   return (
     <>
-    <audio ref={audioRef}/>
+      <audio ref={audioRef} />
       <div className={styles.player}>
-        <PlayerButton 
-        station={station} 
-        playing={playing} 
-        toggle={toggle} 
-        />
-
+        <PlayerButton station={station} playing={playing} toggle={toggle} />
       </div>
     </>
   );
